@@ -5,15 +5,16 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	public static void main(String[] args) {
-		double numeroLitros;
+		int numeroLitros;
 
 		Cubo cuboPorDefecto=new Cubo();
-		Cubo cuboConParametro=new Cubo("plástico", false, "negro", 10, 0);
-		numeroLitros=Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos litros quieres llenar?"));
+		Cubo cuboConParametro=new Cubo("plï¿½stico", false, "negro", 10, 0);
+		numeroLitros=Integer.parseInt(JOptionPane.showInputDialog("ï¿½Cuï¿½ntos litros quieres llenar?"));
 		cuboPorDefecto.llenarCubo(numeroLitros);
-		numeroLitros=Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos litros quieres vaciar?"));
+		numeroLitros=Integer.parseInt(JOptionPane.showInputDialog("ï¿½Cuï¿½ntos litros quieres vaciar?"));
 		cuboPorDefecto.vaciarCubo(numeroLitros);
 		cuboPorDefecto.setCapacidadActual(numeroLitros);
+		JOptionPane.showMessageDialog(null, cuboConParametro);
 	}
 
 }
