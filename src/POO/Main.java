@@ -14,7 +14,10 @@ public class Main {
 		numeroLitros=Integer.parseInt(JOptionPane.showInputDialog("�Cu�ntos litros quieres vaciar?"));
 		cuboPorDefecto.vaciarCubo(numeroLitros);
 		cuboPorDefecto.setCapacidadActual(numeroLitros);
+		cuboPorDefecto.pintarCubo(numeroLitros);
+		cuboPorDefecto.mostrarCuboPintado(cuboPorDefecto.pintarCubo);
 		JOptionPane.showMessageDialog(null, cuboConParametro);
+		JOptionPane.showMessageDialog(null, "Hola me llamo "+pernombre);
 	}
 
 }

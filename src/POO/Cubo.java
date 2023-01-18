@@ -8,7 +8,7 @@ public class Cubo {
 	private String color;
 	private int capacidad;
 	private int capacidadActual;
-	private char[][] pintarCubo;
+	char[][] pintarCubo;
 
 	public Cubo() {
 		this.material = "plastico";
@@ -196,8 +196,13 @@ public class Cubo {
 			}
 		}
 	}
-	public static void mostrarCuboPintado(int[][]pintarCubo){}
+	public static void mostrarCuboPintado(char[][]pintarCubo){
+	char capacidad = 0;
 	for(int i=0;i<pintarCubo.length;i++) {
-		for(int )
+		for(int j=0;j<pintarCubo.length;j++) {
+			capacidad=pintarCubo[i][j];
+	}
+	}
+	System.out.println(capacidad);
 	}
 }
