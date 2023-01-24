@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	public static void main(String[] args) {
-		int numeroLitros;
+		/*int numeroLitros;
 
 		Cubo cuboPorDefecto=new Cubo();
 		Cubo cuboConParametro=new Cubo("pl�stico", false, "negro", 10, 0);
@@ -17,7 +17,9 @@ public class Main {
 		cuboPorDefecto.pintarCubo(numeroLitros);
 		cuboPorDefecto.mostrarCuboPintado(cuboPorDefecto.pintarCubo);
 		JOptionPane.showMessageDialog(null, cuboConParametro);
-		JOptionPane.showMessageDialog(null, "Hola me llamo "+pernombre);
+		JOptionPane.showMessageDialog(null, "Hola me llamo "+pernombre);*/
+		Cuadrado uno=new Cuadrado();
+		uno.pintarCuadrado(5);
 	}
 
 }
