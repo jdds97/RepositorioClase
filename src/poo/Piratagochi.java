@@ -1,7 +1,7 @@
 /**
  * 
  */
-package POO;
+package poo;
 
 import javax.swing.JOptionPane;
 

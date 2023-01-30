@@ -1,4 +1,4 @@
-package POO;
+package poo;
 
 import javax.swing.JOptionPane;
 
@@ -65,7 +65,7 @@ public class Persona {
 	
 
 	public void saludar() {
-		String resultado= "Hola me llamo"+this.nombre;
+		JOptionPane.showMessageDialog(null,"Hola me llamo"+this.nombre);
 		
 		
 	}

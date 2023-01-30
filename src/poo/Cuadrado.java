@@ -1,7 +1,7 @@
 /**
  * 
  */
-package POO;
+package poo;
 
 /**
  * @author Jesús De Dios.R4
