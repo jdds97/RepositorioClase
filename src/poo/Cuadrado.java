@@ -35,8 +35,8 @@ public class Cuadrado {
 
 	
 	public void pintarCuadrado(int lado) {
-		char arribaLado;
-		char abajoLado;
+		char arribaLado = 0;
+		char abajoLado = 0;
 		char resultado = 0;
 		this.lado=lado;	
 		this.lado=lado;

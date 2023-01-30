@@ -11,25 +11,25 @@ import javax.swing.JOptionPane;
  */
 public class Cuenta {
 	// Es derivado
-	public final static boolean descubierta=false;
-	public final static String mensajeSaldo="Tu saldo es de ";
+	public final static boolean DESCUBIERTA=false;
+	public final static String	MENSAJE_SALDO="Tu saldo es de ";
 	private String iban;
 	private int numeroCuenta;
 	private double saldo;
-	private double interesMensual;
+	private double INTERES_MENSUAL;
 	
 
 	/**
 	 * @param descubierta
 	 * @param iban
-	 * @param interesMensual
+	 * @param INTERES_MENSUAL
 	 * @param numeroCuenta
 	 * @param saldo
 	 */
-	public Cuenta(String iban, double interesMensual, int numeroCuenta, double saldo) {
+	public Cuenta(String iban, final double INTERES_MENSUAL, int numeroCuenta, double saldo) {
 
 		this.iban = iban;
-		this.interesMensual = interesMensual;
+		this.INTERES_MENSUAL = INTERES_MENSUAL;
 		this.numeroCuenta = numeroCuenta;
 		this.saldo = saldo;
 	}
@@ -53,14 +53,14 @@ public class Cuenta {
 	 * @return the interesMensual
 	 */
 	public double getInteresMensual() {
-		return interesMensual;
+		return INTERES_MENSUAL;
 	}
 
 	/**
 	 * @param interesMensual the interesMensual to set
 	 */
 	public void setInteresMensual(double interesMensual) {
-		this.interesMensual = interesMensual;
+		this.INTERES_MENSUAL = interesMensual;
 	}
 
 	/**
@@ -92,48 +92,46 @@ public class Cuenta {
 	}
 
 	public double beneficiosFuturos(int numMeses) {
-		
+		double beneficios = 0;
+		if (!(numMeses==0) || !DESCUBIERTA) {
+			beneficios*=INTERES_MENSUAL;
+		}
 		return beneficios;
 	}
 
 	public boolean hacerTransferenciaA(Cuenta c, double cantidad) {
-		boolean realizado = true;
-		do {
-			setSaldo(-cantidad);
-			c.setSaldo(+cantidad);
+		boolean realizado = false;
+		if(!DESCUBIERTA && !(c.iban.equals(iban))) {
+		
+			saldo-=cantidad;
+			c.saldo+=cantidad;
 			
-		} while (!(c.iban.equals(this.iban)));
-		if (descubierta) {
-			JOptionPane.showMessageDialog(null, "Actualmente "+this.numeroCuenta+"tiene una deuda actual de" + saldo
-					+ ",no puede hacer ningún tipo de ingreso o transferencia hasta que la abone");
-			realizado = false;
+			realizado = true;
 		}
-		JOptionPane.showMessageDialog(null, mensajeSaldo+getSaldo());
+		JOptionPane.showMessageDialog(null, MENSAJE_SALDO+getSaldo());
 
 		return realizado;
 	}
 
 	public void ingresar(double dinero) {
-		setSaldo(+dinero);
-	JOptionPane.showMessageDialog(null, mensajeSaldo+getSaldo());
+		this.saldo+=dinero;
+	JOptionPane.showMessageDialog(null, MENSAJE_SALDO+getSaldo());
 	}
 
 	public boolean retirar(double dinero) {
-		setSaldo(-dinero);
-		boolean realizado = true;
-		if (descubierta) {
-			JOptionPane.showMessageDialog(null, "Actualmente tiene una deuda actual de " + saldo
-					+ ",no puede hacer ningún tipo de ingreso o transferencia hasta que la abone");
-			realizado = false;
+		boolean realizado = false;
+		if (!DESCUBIERTA && saldo>=dinero) {
+			this.saldo-=dinero;
+			realizado =true ;
 		}
-		JOptionPane.showMessageDialog(null, mensajeSaldo+getSaldo());
+		JOptionPane.showMessageDialog(null, MENSAJE_SALDO+getSaldo());
 		return realizado;
 	}
 
 	@Override
 	public String toString() {
 		return "Cuenta [" + (iban != null ? "iban=" + iban + ", " : "") + "numeroCuenta=" + numeroCuenta + ", saldo="
-				+ saldo + ", descubierta=" + descubierta + ", interesMensual=" + interesMensual + "]";
+				+ saldo + ", descubierta=" + DESCUBIERTA + ", interesMensual=" + INTERES_MENSUAL + "]";
 	}
 
 }

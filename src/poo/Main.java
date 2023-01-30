@@ -27,7 +27,8 @@ public class Main {
 		JOptionPane.showMessageDialog(null, "El saldo de jesusito es "+jesusito.getSaldo());
 		Cuenta alberto=new Cuenta("0000",0.8,123456781,12);
 		jesusito.hacerTransferenciaA(alberto, 500);
-		JOptionPane.showMessageDialog(null, "El saldo de jesusito es ahora de "+jesusito.getSaldo()+"y el de Alberto "+alberto.getSaldo());
+		JOptionPane.showMessageDialog(null, "El saldo de jesusito es ahora de "+jesusito.getSaldo()+" y el de Alberto "+alberto.getSaldo());
+		
 	}
 
 }
