@@ -11,8 +11,8 @@ public class Main2 {
 		Perro perro1=new Perro("Husky","Pepe", 10, true, false);
 		JOptionPane.showMessageDialog(null, perro1);
 		JOptionPane.showMessageDialog(null, resultado);*/
-		Piratagochi wally =new Piratagochi();
-		wally.menu();
+		Piratagochi jesus =new Piratagochi();
+		jesus.menu();
 		
 	}
 

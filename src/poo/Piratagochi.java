@@ -3,6 +3,8 @@
  */
 package poo;
 
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -10,35 +12,53 @@ import javax.swing.JOptionPane;
  *
  */
 public class Piratagochi {
-	static String necesidad ="nada";
+	public static String necesidad = "nada";
 	private String nombre;
-	private int energia;// Siempre será un valor entre 1 y 10
+	private int energia;
 	private boolean estaHambriento;
-	private int nivelFelicidad;// Siempre será un valor entre 1 y 10
+	private int nivelFelicidad;
+	Random random = new Random();
 
 	/**
-	 * 
+	 * <h1 style=color:red;>Constructor</h1>
+	 * <p>
+	 * Constructor de un piratagochi sin parámetros.
+	 * </p>
 	 */
 	public Piratagochi() {
 		this.nombre = "Jesus";
-		this.energia = 5;
-		this.estaHambriento = true;
-		this.nivelFelicidad = 5;
+		this.energia = random.nextInt() * 10 + 1;
+		this.estaHambriento = random.nextBoolean();
+		this.nivelFelicidad = random.nextInt() * 10 + 1;
 	}
 
+	/**
+	 * <h1 style=color:red;>Constructor</h1>
+	 * <p>
+	 * Constructor de un piratagochi con el parámetro de nombre
+	 * </p>
+	 * 
+	 * @param nombre
+	 *
+	 */
 	public Piratagochi(String nombre) {
 		this.nombre = nombre;
-		this.nombre = "Jesus";
-		this.energia = 5;
-		this.estaHambriento = true;
-		this.nivelFelicidad = 5;
+		this.energia = random.nextInt() * 10 + 1;
+		this.estaHambriento = random.nextBoolean();
+		this.nivelFelicidad = random.nextInt() * 10 + 1;
 	}
 
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para elegir las opciones que hacer con un piratagochi
+	 * </p>
+	 */
 	public void menu() {
 		boolean finalizado = false;
 		do {
 
-			String eleccion = JOptionPane.showInputDialog("Que quieres hacer con Wally\n" + "1.Dormir\n" + "2.Jugar\n"
+			String eleccion = JOptionPane.showInputDialog("Que quieres hacer con "+this.nombre+"\n" + "1.Dormir\n" + "2.Jugar\n"
 					+ "3.Comer\n" + "4.Mirar necesidades\n" + "5.Salir\n");
 			switch (eleccion) {
 			case "1":
@@ -55,17 +75,22 @@ public class Piratagochi {
 				break;
 			case "5":
 				JOptionPane.showMessageDialog(null, "Hasta pronto");
-				finalizado=true;
+				finalizado = true;
 				break;
 			default:
 				JOptionPane.showMessageDialog(null, "Respuesta incorrecta");
-				finalizado = true;
+
 				break;
 			}
 		} while (!finalizado);
 	}
 
 	/**
+	 * <h1 style=color:red;>Constructor</h1>
+	 * <p>
+	 * Constructor de un piratagochi con varios parámetros
+	 * </p>
+	 * 
 	 * @param nombre
 	 * @param energia
 	 * @param estaHambriento
@@ -79,21 +104,31 @@ public class Piratagochi {
 		this.nivelFelicidad = nivelFelicidad;
 	}
 
+	/**
+	 * <h1 style=color:blue;>Acción</h1>
+	 * <p>
+	 * Método para que el piratagochi coma
+	 * </p>
+	 * 
+	 */
 	public void comer() {
-		this.estaHambriento = estaHambriento;
-		this.nivelFelicidad = nivelFelicidad;
-		if (estaHambriento = true)
+		if (estaHambriento)
 			estaHambriento = false;
 
-		if (estaHambriento = false)
+		if (!estaHambriento)
 			nivelFelicidad--;
 		necesidad = "dormir";
 	}
 
+	/**
+	 * <h1 style=color:blue;>Acción</h1>
+	 * <p>
+	 * Método para que el piratagochi duerma
+	 * </p>
+	 * 
+	 * @param horasDurmiendo
+	 */
 	public void dormir(int horasDurmiendo) {
-		this.energia = energia;
-		this.nivelFelicidad = nivelFelicidad;
-		
 		for (int i = 0; i < horasDurmiendo; i++) {
 			energia++;
 			if (horasDurmiendo > 10 && horasDurmiendo < 24)
@@ -103,8 +138,16 @@ public class Piratagochi {
 		necesidad = "jugar";
 	}
 
+	/**
+	 * <h1 style=color:blue;>Acción</h1>
+	 * <p>
+	 * Método para que el piratagochi juega
+	 * </p>
+	 * 
+	 * @param horasJugando
+	 */
 	public void jugar(int horasJugando) {
-		this.nivelFelicidad = nivelFelicidad;
+
 		if (estaHambriento = false && horasJugando <= 10) {
 			horasJugando = nivelFelicidad;
 			energia -= horasJugando;
@@ -117,10 +160,109 @@ public class Piratagochi {
 		necesidad = "dormir";
 	}
 
+	/**
+	 * <h1 style=color:blue;>Acción</h1>
+	 * <p>
+	 * Método para que ver las necesidades del piratagochi
+	 * </p>
+	 */
+
 	public void getNecesidades() {
-		this.nombre=nombre;
-		JOptionPane.showMessageDialog(null, "¡"+nombre+" quiere " + necesidad + "!");
+		JOptionPane.showMessageDialog(null, "¡" + nombre + " quiere " + necesidad + "!");
 
 	}
 
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para modificar el nombre
+	 * </p>
+	 * 
+	 * @return nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para modificar el nombre
+	 * </p>
+	 * 
+	 * @param nombre
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para mostrar la energía
+	 * </p>
+	 * 
+	 * @return the energia
+	 */
+	public int getEnergia() {
+		return energia;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para modificar la energía
+	 * </p>
+	 * 
+	 * @param energia
+	 */
+	public void setEnergia(int energia) {
+		this.energia = energia;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para mostrar el que esté hambriento
+	 * </p>
+	 * 
+	 * @return estaHambriento
+	 */
+	public boolean isEstaHambriento() {
+		return estaHambriento;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para modificar el que esté hambriento
+	 * </p>
+	 * 
+	 * @param estaHambriento
+	 */
+	public void setEstaHambriento(boolean estaHambriento) {
+		this.estaHambriento = estaHambriento;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para mostrar el nivel de felicidad/p>
+	 * 
+	 * @return nivelFelicidad
+	 */
+	public int getNivelFelicidad() {
+		return nivelFelicidad;
+	}
+
+	/**
+	 * <h1 style=color:blue>Acción</h1>
+	 * <p>
+	 * Método para modificar el nivel de felicidad/p>
+	 * 
+	 * @param nivelFelicidad
+	 */
+	public void setNivelFelicidad(int nivelFelicidad) {
+		this.nivelFelicidad = nivelFelicidad;
+	}
 }
