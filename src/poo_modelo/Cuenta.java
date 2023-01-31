@@ -1,7 +1,7 @@
 /**
  * 
  */
-package poo;
+package poo_modelo;
 
 import javax.swing.JOptionPane;
 
@@ -94,7 +94,7 @@ public class Cuenta {
 	public double beneficiosFuturos(int numMeses) {
 		double beneficios = 0;
 		if (!(numMeses==0) || !DESCUBIERTA) {
-			beneficios*=INTERES_MENSUAL;
+			beneficios=numMeses*INTERES_MENSUAL;
 		}
 		return beneficios;
 	}

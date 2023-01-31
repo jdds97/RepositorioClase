@@ -1,4 +1,6 @@
-package poo;
+package poo_gestionl;
+
+import poo_modelo.Cuenta;
 
 public class MainCuenta {
 	

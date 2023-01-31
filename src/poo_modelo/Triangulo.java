@@ -1,4 +1,4 @@
-package poo;
+package poo_modelo;
 
 public class Triangulo {
 	private double base;

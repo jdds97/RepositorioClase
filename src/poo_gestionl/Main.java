@@ -1,6 +1,9 @@
-package poo;
+package poo_gestionl;
 
 import javax.swing.JOptionPane;
+
+import poo_modelo.Cuenta;
+import poo_modelo.Persona;
 
 public class Main {
 

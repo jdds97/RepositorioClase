@@ -1,7 +1,7 @@
 /**
  * 
  */
-package poo;
+package poo_modelo;
 
 /**
  * @author Jesús De Dios.R4

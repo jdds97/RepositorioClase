@@ -1,4 +1,4 @@
-package poo;
+package poo_modelo;
 
 import javax.swing.JOptionPane;
 

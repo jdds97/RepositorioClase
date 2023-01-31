@@ -1,7 +1,7 @@
 /**
  * 
  */
-package poo;
+package poo_modelo;
 
 import java.util.Random;
 
@@ -54,36 +54,7 @@ public class Piratagochi {
 	 * Método para elegir las opciones que hacer con un piratagochi
 	 * </p>
 	 */
-	public void menu() {
-		boolean finalizado = false;
-		do {
-
-			String eleccion = JOptionPane.showInputDialog("Que quieres hacer con "+this.nombre+"\n" + "1.Dormir\n" + "2.Jugar\n"
-					+ "3.Comer\n" + "4.Mirar necesidades\n" + "5.Salir\n");
-			switch (eleccion) {
-			case "1":
-				dormir(energia);
-				break;
-			case "2":
-				jugar(energia);
-				break;
-			case "3":
-				comer();
-				break;
-			case "4":
-				getNecesidades();
-				break;
-			case "5":
-				JOptionPane.showMessageDialog(null, "Hasta pronto");
-				finalizado = true;
-				break;
-			default:
-				JOptionPane.showMessageDialog(null, "Respuesta incorrecta");
-
-				break;
-			}
-		} while (!finalizado);
-	}
+	
 
 	/**
 	 * <h1 style=color:red;>Constructor</h1>
