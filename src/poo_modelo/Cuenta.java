@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Cuenta {
 	// Es derivado
 	public final static boolean DESCUBIERTA=false;
-	public final static String	MENSAJE_SALDO="Tu saldo es de ";
+	public final  String	MENSAJE_SALDO="Tu saldo es de ";
 	private String iban;
 	private int numeroCuenta;
 	private double saldo;
