@@ -8,18 +8,10 @@ public class Carta {
 	private double sumaTotal;
 	Random random=new Random();
 
-	public Carta() {
-		this.palo=random;
-	}
-
-	public String toString() {
-		
-	}
-
-	public double consultarTotal() {
-		Carta
-	}
 
 
-	
-}
+		  Carta(int valor, String palo) {
+		    this.valor = valor;
+		    this.palo = palo;
+		  }
+		}
