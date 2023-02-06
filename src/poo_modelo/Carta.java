@@ -1,17 +1,34 @@
 package poo_modelo;
 
-import java.util.Random;
-
 public class Carta {
-	private Palo palo;
-	private enum valor{UNO,DOS,TRES,CUATRO,CINCO,SEIS,SIETE,SOTA,CABALLO,REY};
-	private double sumaTotal;
-	Random random=new Random();
+
+	private int valor;
+	private String palo;
+
+	public Carta(int valor, String palo) {
+		this.valor =valor;
+		this.palo = palo;
+	}
+
+	public int getValor() {
+		return valor;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
+}
 
 
 
-		  Carta(int valor, String palo) {
-		    this.valor = valor;
-		    this.palo = palo;
-		  }
-		}
+
+
+
+
+
+
+
+
+
+
+

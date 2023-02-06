@@ -1,5 +1,4 @@
 package poo_modelo;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +7,7 @@ public class Mazo {
 
 
 
-	  Mazo() {
+	  public Mazo() {
 	    cartas = new ArrayList<Carta>();
 
 	    // Agrega las cartas al mazo
@@ -20,12 +19,12 @@ public class Mazo {
 	    }
 	  }
 
-	  void barajar() {
+	  public void barajar() {
 	    // Baraja las cartas en el mazo
 	    Collections.shuffle(cartas);
 	  }
 
-	  Carta sacarCarta() {
+	  public Carta sacarCarta() {
 	    // Devuelve la primera carta del mazo y la elimina de él
 	    Carta carta = cartas.get(0);
 	    cartas.remove(0);
