@@ -3,14 +3,15 @@ package poo_modelo;
 import javax.swing.JOptionPane;
 
 public class Persona {
-	//Declaración de atributos privados de una persona.
+	// Declaración de atributos privados de una persona.
 	private String nombre;
 	private String apellidos;
 	private int edad;
 	private char sexo;
 	private Cuenta cuentaCorriente = null;
-	//Creamos este atributo como static para que vaya variando en función
-	//de las diferentes acciones que haremos.
+
+	// Creamos este atributo como static para que vaya variando en función
+	// de las diferentes acciones que haremos.
 	static boolean descubierta;
 
 	/**
@@ -178,10 +179,10 @@ public class Persona {
 	 * 
 	 */
 	public void crearCuentaCorriente(String iban, double interesMensual, int numeroCuenta, double saldo) {
-		//Si la cuenta no está creada si te deja abrir la cuenta
+		// Si la cuenta no está creada si te deja abrir la cuenta
 		if (cuentaCorriente == null)
 			cuentaCorriente = new Cuenta(iban, interesMensual, numeroCuenta, saldo);
-	
+
 	}
 
 	/**
@@ -198,9 +199,9 @@ public class Persona {
 	 */
 	public boolean sacarDinero(double dinero) {
 		boolean realizado = false;
-		//Si la cuenta no está al descubierto,
-		//el saldo es mayor al dinero que se quiere sacar y
-		//la cuenta efectivamente está creada te dejará sacar dinero.
+		// Si la cuenta no está al descubierto,
+		// el saldo es mayor al dinero que se quiere sacar y
+		// la cuenta efectivamente está creada te dejará sacar dinero.
 		if (!descubierta && cuentaCorriente.getSaldo() >= dinero && !(cuentaCorriente == null)) {
 			cuentaCorriente.setSaldo(-dinero);
 			realizado = true;
@@ -225,7 +226,7 @@ public class Persona {
 	 */
 	public boolean ingresarDinero(double cantidad) {
 		boolean realizado = false;
-		//Si la cuenta está creada te dejará ingresar dinero.
+		// Si la cuenta está creada te dejará ingresar dinero.
 		if (!(cuentaCorriente == null)) {
 			cuentaCorriente.setSaldo(+cantidad);
 			realizado = true;
@@ -233,14 +234,14 @@ public class Persona {
 		return realizado;
 
 	}
+
 	/**
 	 * <h1 style=color:blue>Acción</h1>
 	 * <hr>
 	 * <h2 style=color:green>Objeto Cuenta</h2>
 	 * <p>
-	 * Método para que la persona transfiera dinero 
-	 * de su cuenta a la otra si cumple todas las
-	 * condiciones impuestas.
+	 * Método para que la persona transfiera dinero de su cuenta a la otra si cumple
+	 * todas las condiciones impuestas.
 	 * </p>
 	 * 
 	 * @param c
@@ -249,11 +250,11 @@ public class Persona {
 	 */
 	public boolean hacerTransferenciaA(Persona c, double cantidad) {
 		boolean realizado = false;
-		//Si la cuenta desde la que vamos a realizar la cuenta 
-		//no está descubierta o el iban de las dos cuentas 
-		//las cuales se quiere realizar la operación no coinciden
-		//entonces si se podrá realizar la operaciónd e transferencia.
-		
+		// Si la cuenta desde la que vamos a realizar la cuenta
+		// no está descubierta o el iban de las dos cuentas
+		// las cuales se quiere realizar la operación no coinciden
+		// entonces si se podrá realizar la operaciónd e transferencia.
+
 		if (!descubierta && !(c.cuentaCorriente.getIban().equals(cuentaCorriente.getIban()))) {
 
 			cuentaCorriente.setSaldo(-cantidad);
@@ -265,6 +266,7 @@ public class Persona {
 
 		return realizado;
 	}
+
 	/**
 	 * <h1 style=color:blue>Acción</h1>
 	 * <hr>
@@ -274,8 +276,14 @@ public class Persona {
 	 * </p>
 	 */
 	public void cerrarCuenta() {
-		//Si la cuenta está creada si te dejará cerrarla.
-		if(!(cuentaCorriente==null))
-		cuentaCorriente = null;
+		// Si la cuenta está creada si te dejará cerrarla.
+		if (!(cuentaCorriente == null))
+			cuentaCorriente = null;
 	}
+
+	public void cumplirAnio() {
+		edad++;
+	}
+
+	
 }

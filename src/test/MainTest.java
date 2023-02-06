@@ -15,6 +15,10 @@ class MainTest {
 
 	@Test
 	void testMayorDeEdad() {
+		assertEquals(Main3.mayorDeEdad(19),false);	
+		}
+	@Test
+	void testMenorDeEdad() {
 		assertEquals(Main3.mayorDeEdad(17),false);	
 		}
 

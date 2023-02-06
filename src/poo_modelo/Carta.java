@@ -7,7 +7,7 @@ public class Carta {
 
 	public Carta(int valor, String palo) {
 		this.valor =valor;
-		this.palo = palo;
+		this.setPalo(palo);
 	}
 
 	public int getValor() {
@@ -16,6 +16,14 @@ public class Carta {
 
 	public void setValor(int valor) {
 		this.valor = valor;
+	}
+
+	public String getPalo() {
+		return palo;
+	}
+
+	public void setPalo(String palo) {
+		this.palo = palo;
 	}
 }
 

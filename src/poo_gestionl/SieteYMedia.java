@@ -5,16 +5,23 @@ import poo_modelo.Carta2;
 import javax.swing.JOptionPane;
 
 public class SieteYMedia {
-
+	
+	static double sumaTotal = 0;
+	/**
+	 * <h1 style=color:aquamarine>MÃ©todo Main</h1>
+	 * <p>Muestra los resultados del juego</p>
+	 * <hr>
+	 * @param args
+	 */
 	public static void main(String[] args) {
-
+		// Creamos una nueva carta y definimos las variables para el bucle
 		Carta2 carta = new Carta2();
-		double sumaTotal = 0;
+		
 		boolean seguir = true;
-
-		while (seguir) {
+		//Hacemos un bucle para que tenga en cuenta cuando quiera sacar mas cartas
+		do {
 			int opcion = Integer.parseInt(
-					JOptionPane.showInputDialog("Elija una opción:\n" + "1. Nueva carta\n" + "2. Plantarse\n"));
+					JOptionPane.showInputDialog("Elija una opcion:\n" + "1. Nueva carta\n" + "2. Plantarse\n"));
 			switch (opcion) {
 			case 1:
 				carta = new Carta2();
@@ -23,8 +30,8 @@ public class SieteYMedia {
 				JOptionPane.showMessageDialog(null, "Total acumulado: " + sumaTotal);
 				if (sumaTotal > 7.5) {
 					String respuesta = JOptionPane.showInputDialog(null,
-							"Te has pasado, has perdido. ¿Quieres volver a jugar? (s/n)");
-					if (!respuesta.equalsIgnoreCase("s")) {
+							"Te has pasado, has perdido.\n "+"Â¿Quieres volver a jugar?\n"+"Si\n"+"No\n");
+					if (!respuesta.equalsIgnoreCase("si")) {
 						seguir = false;
 					} else {
 						sumaTotal = 0;
@@ -33,7 +40,7 @@ public class SieteYMedia {
 				break;
 			case 2:
 				carta = new Carta2();
-				JOptionPane.showMessageDialog(null, "Has terminado el juego. La última carta es: " + carta);
+				JOptionPane.showMessageDialog(null, "Has terminado el juego. La ultima carta es: " + carta);
 				sumaTotal += carta.consultarTotal();
 				JOptionPane.showMessageDialog(null, "Total acumulado: " + sumaTotal);
 				if (sumaTotal <= 7.5) {
@@ -41,7 +48,7 @@ public class SieteYMedia {
 				} else {
 					JOptionPane.showMessageDialog(null, "Has perdido");
 				}
-				String respuesta = JOptionPane.showInputDialog(null, "¿Quieres volver a jugar? (s/n)");
+				String respuesta = JOptionPane.showInputDialog(null, "Â¿Quieres volver a jugar?"+"Si\n"+"No\n");
 
 				if (!respuesta.equalsIgnoreCase("s")) {
 					seguir = false;
@@ -50,10 +57,10 @@ public class SieteYMedia {
 				}
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, "Opción inválida");
+				JOptionPane.showMessageDialog(null, "Opcion invalida");
 				break;
 			}
-		}
-
+		} while (seguir);
 	}
+
 }

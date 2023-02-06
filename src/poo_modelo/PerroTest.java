@@ -13,8 +13,7 @@ class PerroTest {
 
 	@Test
 	void testCambiarCansado() {
-		assert.eq
-		fail("Not yet implemented");
+		
 	}
 
 }

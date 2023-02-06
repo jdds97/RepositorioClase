@@ -15,7 +15,7 @@ public class Cuadrado {
 	private int lado;
 	
 
-	public Cuadrado() {
+	public Cuadrado(int lado) {
 		this.lado = lado;
 	}
 
