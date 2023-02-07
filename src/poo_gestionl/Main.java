@@ -1,5 +1,7 @@
 package poo_gestionl;
 
+import java.time.LocalDate;
+
 import javax.swing.JOptionPane;
 
 import poo_modelo.Cuenta;
@@ -23,7 +25,7 @@ public class Main {
 		JOptionPane.showMessageDialog(null, "Hola me llamo "+pernombre);
 		Cuadrado uno=new Cuadrado();
 		uno.pintarCuadrado(5);*/
-		Persona jesus=new Persona(" Jesus","de dios Sanchez",25,'M');
+		Persona jesus=new Persona(" Jesus","de dios Sanchez",LocalDate.parse("03-08-1997"),'M');
 		jesus.saludar();
 		JOptionPane.showMessageDialog(null, "Jesus tiene como sexo "+jesus.getSexo());
 		Cuenta jesusito=new Cuenta("0000", 0.5,123456789,1200);

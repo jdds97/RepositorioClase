@@ -1,14 +1,16 @@
 package poo_modelo;
 
+import java.time.LocalDate;
+
 import javax.swing.JOptionPane;
 
 public class Persona {
 	// Declaración de atributos privados de una persona.
-	private String nombre;
-	private String apellidos;
-	private int edad;
-	private char sexo;
-	private Cuenta cuentaCorriente = null;
+	protected String nombre;
+	protected String apellidos;
+	protected LocalDate fechaNacimiento;
+	protected char sexo;
+	protected Cuenta cuentaCorriente = null;
 
 	// Creamos este atributo como static para que vaya variando en función
 	// de las diferentes acciones que haremos.
@@ -23,13 +25,13 @@ public class Persona {
 	 * 
 	 * @param nombre
 	 * @param apellidos
-	 * @param edad
+	 * @param fechaNacimiento
 	 * @param sexo
 	 */
-	public Persona(String nombre, String apellidos, int edad, char sexo) {
+	public Persona(String nombre, String apellidos, LocalDate fechaNacimiento, char sexo) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.edad = edad;
+		this.fechaNacimiento = fechaNacimiento;
 		this.sexo = sexo;
 	}
 
@@ -43,7 +45,7 @@ public class Persona {
 	public Persona() {
 		this.nombre = "Jesus";
 		this.apellidos = "de Dios Sánchez";
-		this.edad = 25;
+		this.fechaNacimiento = LocalDate.parse("03-08-1997");
 		this.sexo = 'M';
 	}
 
@@ -108,8 +110,8 @@ public class Persona {
 	 * 
 	 * @return edad
 	 */
-	public int getEdad() {
-		return edad;
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
 	/**
@@ -118,11 +120,12 @@ public class Persona {
 	 * <p>
 	 * Define la edad.
 	 * </p>
+	 * @param fechaNacimiento 
 	 * 
 	 * @param edad
 	 */
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	/**
@@ -281,9 +284,7 @@ public class Persona {
 			cuentaCorriente = null;
 	}
 
-	public void cumplirAnio() {
-		edad++;
-	}
+	
 
 	
 }
