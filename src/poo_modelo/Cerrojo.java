@@ -1,24 +1,57 @@
 package poo_modelo;
 
 public class Cerrojo {
-	private  String clave;
-	private String clave2;
-	protected boolean estado=false;
-	
+	private  String [] clave = {null,null,null};
 
-
-	/**
-	 * @param cLAVE
-	 */
-	public void comprobarClave(String intento,boolean estado){
-		if(clave)
+	public Cerrojo() {
+		String [] clave = {"1","3","5"};
 	}
-	public void cambiarClave(String claveNueva,boolean estado){
-		if(estado=true) {
-			this.clave=claveNueva;
+
+	public boolean cambiarCombinacion(String[] claveActual, String[] claveCambiar) {
+
+		boolean cambiarCombinacion = false;
+		if (compararArray(claveActual, clave) == true) {
+			cambiarCombinacion = true;
+			clave = claveCambiar;
+		} else {
+			cambiarCombinacion = false;
 		}
-	}
+		return cambiarCombinacion;
 
 	}
+
+	public boolean compararArray(String[] claveActual, String[] clave2) {
+		boolean compararArray = false;
+		
+		String claveString = "";
+		String claveString2 = "";
+		for (int i = 0; i < claveActual.length && i < clave2.length; i++) {
+			  claveString+=claveActual[i].toString();
+			 claveString+=clave2[i].toString();
+			}
+			if (claveString == claveString2) {
+				compararArray = true;
+			}
+
+			else {
+				compararArray = false;
+			}
+			return compararArray;
+		}
+
+		
 	
 
+	public boolean abrirCerrojo(String[] abrir) {
+		boolean abrirCerrojo = false;
+
+		if (abrir == clave) {
+			abrirCerrojo = true;
+
+		} else {
+			abrirCerrojo = false;
+		}
+		return abrirCerrojo;
+
+	}
+}
