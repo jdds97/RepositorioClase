@@ -3,29 +3,22 @@
  */
 package poo_modelo;
 
-import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author Jesús De Dios.R4
  *
  */
+
 public class RelojDigital extends Reloj{
-
-	/**
-	 * 
-	 */
-	public RelojDigital() {
-		super();
-	}
-
+	 DateTimeFormatter f = DateTimeFormatter.ofPattern("hh:MM");
 	@Override
-	public void Reloj(LocalDateTime hora) {
-		
+	public String mostrarHora() {
+		return "Son las "+hora;
 	}
+
 	
 
-	/**
-	 * 
-	 */
+
 	
 }
