@@ -1,28 +1,26 @@
 package poo_modelo;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
-import com.sun.tools.javac.util.List;
+public class Cliente {
+	private int idCliente;
+	private int numeroAlquileres;
+	protected SimpleDateFormat fechaAlquiler;
 
-public class Cliente extends PersonaVideoclub {
-	  private int idCliente;
-	  private List <Alquiler> alquileres;
-	  
-	  public Cliente(String nombre, int edad, String direccion, String telefono, int idCliente) {
-	    super(nombre, edad, direccion, telefono);
-	    this.idCliente = idCliente;
-	    this.alquileres = new ArrayList<>();
-	  }
-	  
-	  public int getIdCliente() {
-	    return idCliente;
-	  }
-	  
-	  public List<Alquiler> getAlquileres() {
-	    return alquileres;
-	  }
-	  
-	  public void agregarAlquiler(Alquiler alquiler) {
-	    alquileres.add(alquiler);
-	  }
+	public Cliente(String nombre, int edad, String direccion, String telefono, int idCliente) {
+		this.idCliente = idCliente;
+		this.numeroAlquileres = 0;
 	}
+
+	public int getIdCliente() {
+		return idCliente;
+	}
+
+	public int getNumeroAlquileres() {
+		return numeroAlquileres;
+	}
+
+	public void setNumeroAlquileres(int numeroAlquileres) {
+		this.numeroAlquileres = numeroAlquileres;
+	}
+}

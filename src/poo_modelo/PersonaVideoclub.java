@@ -1,20 +1,19 @@
 package poo_modelo;
 
-public class PersonaVideoclub {
+public class PersonaVideoclub extends Cliente  {
 	
 		  private String nombre;
 		  private int edad;
 		  private String direccion;
 		  private String telefono;
 		  
-		  public PersonaVideoclub(String nombre, int edad, String direccion, String telefono) {
-		    this.nombre = nombre;
-		    this.edad = edad;
-		    this.direccion = direccion;
-		    this.telefono = telefono;
+		
+		  public PersonaVideoclub(String nombre, int edad, String direccion, String telefono, int idCliente) {
+			super(nombre, edad, direccion, telefono, idCliente);
+		
 		  }
-		  
-		  public String getNombre() {
+
+		public String getNombre() {
 		    return nombre;
 		  }
 		  
