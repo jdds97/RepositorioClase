@@ -1,6 +1,4 @@
-	package poo_modelo;
-
-import java.text.SimpleDateFormat;
+package poo_modelo;
 import java.time.LocalDate;
 
 
