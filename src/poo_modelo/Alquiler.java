@@ -1,13 +1,15 @@
 	package poo_modelo;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
 
 public class Alquiler {
 		  private Cliente cliente;
 		  private Pelicula pelicula;
-		  private Date fechaAlquiler;
+		  private LocalDate fechaAlquiler;
 		  
-		  public Alquiler(Cliente cliente, Pelicula pelicula, Date fechaAlquiler) {
+		  public Alquiler(Cliente cliente, Pelicula pelicula, LocalDate fechaAlquiler) {
 		    this.cliente = cliente;
 		    this.pelicula = pelicula;
 		    this.fechaAlquiler = fechaAlquiler;
@@ -21,7 +23,7 @@ public class Alquiler {
 		    return pelicula;
 		  }
 		  
-			public Date getFechaAlquiler() {
+			public LocalDate getFechaAlquiler() {
 		    return fechaAlquiler;
 		  }
 		}

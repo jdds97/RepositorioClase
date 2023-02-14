@@ -2,19 +2,28 @@ package poo_modelo;
 
 import java.text.SimpleDateFormat;
 
-public class Cliente {
+public class Cliente extends PersonaVideoclub {
 	private int idCliente;
 	private int numeroAlquileres;
 	protected SimpleDateFormat fechaAlquiler;
 
-	public Cliente(String nombre, int edad, String direccion, String telefono, int idCliente) {
-		this.idCliente = idCliente;
-		this.numeroAlquileres = 0;
+	
+	
+	/**
+	 * @param nombre
+	 * @param edad
+	 * @param direccion
+	 * @param telefono
+	 */
+	public Cliente(String nombre, int edad, String direccion, String telefono) {
+		super(nombre, edad, direccion, telefono);
+		// TODO Auto-generated constructor stub
 	}
-
 	public int getIdCliente() {
 		return idCliente;
 	}
+
+
 
 	public int getNumeroAlquileres() {
 		return numeroAlquileres;
