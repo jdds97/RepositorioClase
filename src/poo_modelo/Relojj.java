@@ -3,37 +3,40 @@
  */
 package poo_modelo;
 
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.swing.JOptionPane;
 
 /**
- * @author JesÃºs De Dios.R4
+ * @author Jesús De Dios.R4
  *
  */
 public abstract class Reloj {
-	protected LocalTime hora = LocalTime.now();
-	protected static LocalTime horaAlarma;
-	protected static boolean alarma = false;
+	protected static LocalTime hora=LocalTime.now();
+	private static LocalTime horaAlarma;
+	private static boolean alarma = false;
+	
 
 	/**
 	 * @param hora
 	 */
-
+	public LocalTime getHora() {
+		return hora;
+	};
 	abstract String mostrarHora();
+
 
 	public static boolean isAlarma() {
 		return alarma;
 	}
 
-	public static boolean activarAlarma(int horas, int minutos) {
-		if (alarma) {
-			horaAlarma = LocalTime.of(horas, minutos);
-
-			return !alarma;
+	public static void activarAlarma(LocalTime horaFijada) {
+		if (hora == horaFijada) {
+			JOptionPane.showMessageDialog(null, "RING RING RING");
 		}
-		return alarma;
+
 	}
 
 	/**
@@ -55,9 +58,6 @@ public abstract class Reloj {
 	 * @return alarma desactivada
 	 */
 	public static boolean desactivarAlarma() {
-		if (!alarma) {
-			return alarma;
-		}
-		return alarma;
+		return alarma = false;
 	}
 }

@@ -6,13 +6,15 @@ package poo_modelo;
 
 
 /**
- * @author Wally
+ * @author Jesus de Dios
  *
  */
 public class RelojAnalógico extends Reloj {
 
 	
-
+/**
+ * @return Hora actual
+ */
 	@Override
 	public String mostrarHora() {
 		return "En construcción";
