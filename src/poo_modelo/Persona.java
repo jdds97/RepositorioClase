@@ -284,6 +284,11 @@ public class Persona {
 			cuentaCorriente = null;
 	}
 
+	public Object getEdad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 	

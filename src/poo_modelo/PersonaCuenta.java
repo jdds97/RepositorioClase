@@ -8,8 +8,6 @@ public class PersonaCuenta {
 	private String apellidos;
 	private int edad;
 	char sexo;
-	private Cuenta persona;
-	
 	/**
 	 * @param nombre
 	 * @param apellidos
@@ -71,6 +69,6 @@ public class PersonaCuenta {
 		
 	}
 	public void abrirCuenta(String iban, final double INTERES_MENSUAL, int numeroCuenta, double saldo) {
-		this.persona=new Cuenta(iban,INTERES_MENSUAL, numeroCuenta, saldo);
+		new Cuenta(iban,INTERES_MENSUAL, numeroCuenta, saldo);
 	}
 }

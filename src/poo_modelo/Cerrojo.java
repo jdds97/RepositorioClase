@@ -4,7 +4,6 @@ public class Cerrojo {
 	private  String [] clave = {null,null,null};
 
 	public Cerrojo() {
-		String [] clave = {"1","3","5"};
 	}
 
 	public boolean cambiarCombinacion(String[] claveActual, String[] claveCambiar) {

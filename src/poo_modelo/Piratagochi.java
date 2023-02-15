@@ -119,7 +119,7 @@ public class Piratagochi {
 	 */
 	public void jugar(int horasJugando) {
 
-		if (estaHambriento = false && horasJugando <= 10) {
+		if (estaHambriento = false) {
 			horasJugando = nivelFelicidad;
 			energia -= horasJugando;
 			estaHambriento = true;

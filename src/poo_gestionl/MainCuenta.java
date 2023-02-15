@@ -2,7 +2,7 @@ package poo_gestionl;
 
 import javax.swing.JOptionPane;
 
-import poo_modelo.Cerrojo;
+
 import poo_modelo.Cuenta;
 
 public class MainCuenta {
@@ -14,8 +14,7 @@ public class MainCuenta {
 		
 		JOptionPane.showMessageDialog(null,jesus.getSaldo());
 		JOptionPane.showMessageDialog(null,alberto.getSaldo());
-		Cerrojo cerrojo1=new Cerrojo();
-		cerrojo1.abrirCerrojo();
+		
 	}
 
 	

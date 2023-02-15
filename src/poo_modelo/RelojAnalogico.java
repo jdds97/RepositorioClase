@@ -9,7 +9,7 @@ package poo_modelo;
  * @author Jesus de Dios
  *
  */
-public class RelojAnalógico extends Reloj {
+public class RelojAnalogico extends Reloj {
 
 	
 /**
@@ -17,7 +17,7 @@ public class RelojAnalógico extends Reloj {
  */
 	@Override
 	public String mostrarHora() {
-		return "En construcción";
+		return "En construccion";
 	}
 
 

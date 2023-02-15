@@ -4,9 +4,6 @@
 package poo_modelo;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
-import javax.swing.JOptionPane;
 
 /**
  * @author Jesús De Dios.R4
@@ -14,8 +11,8 @@ import javax.swing.JOptionPane;
  */
 public abstract class Reloj {
 	protected LocalTime hora = LocalTime.now();
-	protected static LocalTime horaAlarma;
-	protected static boolean alarma = false;
+	protected LocalTime horaAlarma;
+	protected boolean alarma = false;
 
 	/**
 	 * @param hora
@@ -23,40 +20,36 @@ public abstract class Reloj {
 
 	abstract String mostrarHora();
 
-	public static boolean isAlarma() {
+	/**
+	 * 
+	 * @return El estado de la alarma
+	 */
+	public boolean isAlarma() {
 		return alarma;
 	}
 
-	public static boolean activarAlarma(int horas, int minutos) {
-		if (alarma) {
-			horaAlarma = LocalTime.of(horas, minutos);
+	public boolean activarAlarma(int horas, int minutos) {
+		alarma = true;
 
-			return !alarma;
-		}
+		horaAlarma = LocalTime.of(horas, minutos);
+
 		return alarma;
 	}
 
 	/**
 	 * @return the horaAlarma
 	 */
-	public static LocalTime getHoraAlarma() {
+	public LocalTime getHoraAlarma() {
 		return horaAlarma;
 	}
 
 	/**
-	 * @param horaAlarma the horaAlarma to set
-	 */
-	public static void setHoraAlarma(LocalTime horaAlarma) {
-		Reloj.horaAlarma = horaAlarma;
-	}
-
-	/**
 	 * 
-	 * @return alarma desactivada
+	 * @return Desactiva la alarma
 	 */
-	public static boolean desactivarAlarma() {
-		if (!alarma) {
-			return alarma;
+	public boolean desactivarAlarma() {
+		if (alarma) {
+			alarma = false;
 		}
 		return alarma;
 	}

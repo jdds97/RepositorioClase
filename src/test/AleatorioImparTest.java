@@ -15,8 +15,8 @@ class AleatorioImparTest {
 
 	@Test
 	void test() {
-		boolean condicion;
-		if(>8&& aleatorioImpar<9) {
+		boolean condicion = false;
+		if(AleatorioImpar.aleatorioImpar(0, 0)>8&& AleatorioImpar.aleatorioImpar(0, 0)<9) {
 			condicion=true;
 		}
 assertEquals(AleatorioImpar.aleatorioImpar(0, 0), condicion);

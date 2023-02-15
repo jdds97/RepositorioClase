@@ -121,7 +121,7 @@ public class Cubo {
 	}
 
 	public void pintarCubo(int numeroLitros) {
-		this.pintarCubo = pintarCubo;
+	
 		pintarCubo = new char[10][7];
 		for (int i = 0; i < pintarCubo.length; i++) {
 			for (int j = 0; j < pintarCubo.length; j++) {
