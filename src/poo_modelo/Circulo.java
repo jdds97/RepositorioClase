@@ -1,14 +1,20 @@
 package poo_modelo;
 
 public class Circulo implements IFigura{
+	private double radio;
+	
 
-	public Circulo() {
-		// TODO Auto-generated constructor stub
+	/**
+	 * @param radio
+	 */
+	public Circulo(double radio) {
+		this.radio = radio;
 	}
 
+
 	@Override
-	public void getArea() {
-		// TODO Auto-generated method stub
+	public double getArea() {
+		return PI*Math.pow(radio, 2);
 		
 	}
 
