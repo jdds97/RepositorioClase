@@ -3,6 +3,7 @@ package poo_modelo;
 public class Rectangulo implements IFigura {
 	private double base;
 	private double altura;
+	private  String nombre="Rectangulo";
 	/**
 	 * @param base
 	 * @param altura
@@ -15,6 +16,10 @@ public class Rectangulo implements IFigura {
 	@Override
 	public double getArea() {
 		return base*altura ;
+	}
+	@Override
+	public String getNombreFigura() {
+		return nombre;
 	}
 	
 

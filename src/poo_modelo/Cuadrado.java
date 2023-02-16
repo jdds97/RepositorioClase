@@ -7,12 +7,13 @@ package poo_modelo;
  * @author Jesús De Dios.R4
  *
  */
-public class Cuadrado {
+public class Cuadrado implements IFigura {
 
 	/**
 	 * 
 	 */
 	private int lado;
+	private String nombre="Cuadrado";
 	
 
 	public Cuadrado(int lado) {
@@ -26,11 +27,9 @@ public class Cuadrado {
 	public void setLado(int lado) {
 		this.lado = lado;
 	}
-
-	public int getArea(){
-		
-		int area=(int) Math.pow(lado, 2);
-		return area;
+	@Override
+	public double getArea(){
+		return Math.pow(lado, 2);
 	}
 
 	
@@ -47,6 +46,12 @@ public class Cuadrado {
 		
 		
 			System.out.println(arribaLado+abajoLado);
+	}
+
+	@Override
+	public String getNombreFigura() {
+		// TODO Auto-generated method stub
+		return nombre;
 	}
 
 }

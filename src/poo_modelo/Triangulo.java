@@ -1,8 +1,9 @@
 package poo_modelo;
 
-public class Triangulo {
+public class Triangulo implements IFigura{
 	private double base;
 	private double altura;
+	private String nombre="Triangulo";
 	/**
 	 * @param base 
 	 * @param base
@@ -24,6 +25,14 @@ public class Triangulo {
 	}
 	public void setAltura(double altura) {
 		this.altura = altura;
+	}
+	@Override
+	public double getArea() {
+		return base*altura/2;
+	}
+	@Override
+	public String getNombreFigura() {
+		return nombre;
 	}
 	
 }

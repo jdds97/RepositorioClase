@@ -2,6 +2,7 @@ package poo_modelo;
 
 public class Circulo implements IFigura{
 	private double radio;
+	private String nombre="Circulo";
 	
 
 	/**
@@ -16,6 +17,12 @@ public class Circulo implements IFigura{
 	public double getArea() {
 		return PI*Math.pow(radio, 2);
 		
+	}
+
+
+	@Override
+	public String getNombreFigura() {
+		return nombre;
 	}
 
 }
