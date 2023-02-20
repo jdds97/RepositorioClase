@@ -21,6 +21,7 @@ public class MainFigura {
 		IFigura []figuras=new IFigura[(int) numRandom];
 		for (int i = 0; i < figuras.length; i++) {
 			  int tipoFigura = random.nextInt(4);
+			  
 		        
 
 		        switch (tipoFigura) {
@@ -37,7 +38,7 @@ public class MainFigura {
 		                figuras[i] = new Circulo(20);
 		                break;
 		            default:
-		                // Manejar caso inválido
+		                
 		                break;
 		
 			
