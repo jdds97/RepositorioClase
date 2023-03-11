@@ -4,16 +4,16 @@ import poo_modelo.Reloj;
 
 public class Pizza extends Pizzeria {
 	/*
-	 * Creación de enums
+	 * CreaciÃ³n de enums
 	 * -Estado de la pizza
 	 * -Fecha y hora de cuando fue servida
-	 * -Tamaño
+	 * -TamaÃ±o
 	 * -Pizza
 	 */
 
-	// La clase debe almacenar información sobre el número total de pizzas que se
+	// La clase debe almacenar informaciÃ³n sobre el nÃºmero total de pizzas que se
 	// han pedido y que se han servido. Siempre que se crea una pizza nueva, su
-	// estado es “pedida”
+	// estado es â€œpedidaâ€�
 
 	private static int numeroPizzas = 0;
 
@@ -50,11 +50,11 @@ public class Pizza extends Pizzeria {
 		this.fechaHoraServida = fechaHoraServida;
 	}
 
-	enum Tamaño {
+	enum TamaÃ±o {
 		mediana, familiar
 	};
 
-	Tamaño tamañoPizza;
+	Tamaño tamaÃ±oPizza;
 
 	enum Tipo {
 		margarita, cuatroQuesos, funghi
@@ -64,19 +64,19 @@ public class Pizza extends Pizzeria {
 
 	/**
 	 * 
-	 * @return tamañoPizza
+	 * @return tamaÃ±oPizza
 	 */
-	public Tamaño getTamañoPizza() {
-		return tamañoPizza;
+	public TamaÃ±o getTamaÃ±oPizza() {
+		return tamaÃ±oPizza;
 	}
 
 	/**
 	 * 
-	 * @param tamañoPizza
+	 * @param tamaÃ±oPizza
 	 */
 
-	public void setTamañoPizza(Tamaño tamañoPizza) {
-		this.tamañoPizza = tamañoPizza;
+	public void setTamaÃ±oPizza(TamaÃ±o tamaÃ±oPizza) {
+		this.tamaÃ±oPizza = tamaÃ±oPizza;
 	}
 
 	/**
@@ -111,10 +111,10 @@ public class Pizza extends Pizzeria {
 	}
 
 	/*
-	 * Constructor de Pizza con los parámetros de tamaño y tipo
+	 * Constructor de Pizza con los parÃ¡metros de tamaÃ±o y tipo
 	 */
-	public Pizza(Tipo tipo, Tamaño tamaño) {
-		this.tamañoPizza = tamaño;
+	public Pizza(Tipo tipo, TamaÃ±o tamaÃ±o) {
+		this.tamaÃ±oPizza = tamaÃ±o;
 		this.tipoPizza = tipo;
 		numeroPizzas++;
 		estadoPizzaPedida=true;
