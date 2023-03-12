@@ -50,11 +50,11 @@ public class Pizza extends Pizzeria {
 		this.fechaHoraServida = fechaHoraServida;
 	}
 
-	enum TamaÃ±o {
+	enum Tamaño {
 		mediana, familiar
 	};
 
-	Tamaño tamaÃ±oPizza;
+	Tamaño tamañoPizza;
 
 	enum Tipo {
 		margarita, cuatroQuesos, funghi

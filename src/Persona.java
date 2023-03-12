@@ -2,6 +2,7 @@
 public abstract class Persona {
 	protected String nombre;
 	protected String apellidos;
+	
 	enum Nacionalidades {
 		ESP,GBR,USA,PRT
 	};
@@ -11,9 +12,6 @@ public abstract class Persona {
 		this.apellidos = apellidos;
 		this.nacionalidad = nacionalidad;
 	}
-	public boolean equals(Saltador saltador) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 }
