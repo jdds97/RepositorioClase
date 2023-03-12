@@ -15,23 +15,31 @@ public abstract class Bebida {
 		this.precioFinal = precioFinal;
 		this.marca = marca;
 	}
+
 	public double getPrecioFinalMarca(Marca marca) {
 		return precioFinal;
-		
+
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public int getCantidad() {
 		return cantidad;
 	}
+
 	public double getPrecioBase() {
 		return precioBase;
 	}
+
 	public double getPrecioFinal() {
 		return precioFinal;
 	}
-	public Marca getMarca() {
-		return marca;
+
+	public Marca getNombreMarca() {
+		return this.marca;
 	}
+
+	
 }
