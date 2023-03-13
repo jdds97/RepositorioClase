@@ -13,7 +13,7 @@ public class MainExamen {
 		
 		
 			
-		
+		int idEliminar = 0;
 		String eleccionMenu;
 		Almacen almacen = new Almacen();
 		do {
@@ -34,8 +34,8 @@ public class MainExamen {
 					
 					break;
 				case "2":
-					Marca una=new Marca();
-					JOptionPane.showMessageDialog(null, "El precio total de la marca "+una.getNombre()+" es de "+almacen.getPrecioTotalMarca(una));
+					
+					JOptionPane.showMessageDialog(null, "El precio total de la marca "+" es de ");
 					
 					break;
 				case "3":
@@ -43,18 +43,18 @@ public class MainExamen {
 					
 					break;
 				case"4":
-					BebidaAzucarada pepsi=new BebidaAzucarada(0, 0, 0, 0, 0, una);
+					BebidaAzucarada pepsi=new BebidaAzucarada(1, 33, 0, 0, null);
 					almacen.agregarProducto(pepsi);
 				break;
 				case "5":
-					
-					almacen.eliminarProducto(pepsi);
+					idEliminar=Integer.parseInt(JOptionPane.showInputDialog("Especifica el numero id"));
+					almacen.eliminarProducto(idEliminar);
 					break;
 				case "6":
 					almacen.mostrarInventario();
 				break;
 				case "7":
-					almacen.ampliarAlmacen();
+					almacen.ampliarAlmacen(idEliminar);
 				break;
 				default:
 					break;
