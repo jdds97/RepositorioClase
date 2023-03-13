@@ -13,11 +13,9 @@ public abstract class Bebida {
 	protected Marca marca;
 	protected String []arrayNombresMarcas;
 
-	public Bebida(int id, int cantidad, double precioBase, double precioFinal, Marca marca,String[] arrayNombresMarcas,String nombreMarca) {
+	public Bebida(String[] arrayNombresMarcas, String nombreMarca,int id,int cantidad,Marca marca) {
 		this.id = id;
 		this.cantidad = cantidad;
-		this.precioBase = precioBase;
-		this.precioFinal = precioFinal;
 		this.marca = marca;
 		this.arrayNombresMarcas=arrayNombresMarcas;
 		this.nombreMarca=nombreMarca;

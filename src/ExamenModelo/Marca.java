@@ -3,22 +3,31 @@ package ExamenModelo;
 public class Marca {
 	protected String nombre;
 	protected Bebida bebida;
-	
-	public Marca(String marca,Bebida bebida) {
-		this.nombre=marca;
-		this.bebida=bebida;
+	public Marca(String marca) {
+		this.nombre = marca;
 	}
+
+	/**
+	 * @return the bebida
+	 */
+	public Bebida getBebida() {
+		return bebida;
+	}
+
+	/**
+	 * @param bebida the bebida to set
+	 */
+	public void setBebida(Bebida bebida) {
+		this.bebida = bebida;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
-	public Bebida getBebida() {
-		return this.bebida;
-	}
+
 	public int getId() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
 
 }
-

@@ -9,7 +9,6 @@ public class Alquiler {
 	private LocalDate fechaInicioAlquiler;
 	private LocalDate fechaFinalAlquiler;
 	private Barco barco;
-	private int diasDeOcupacion;
 	protected int precioAlquiler;
 	
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -28,12 +27,12 @@ public class Alquiler {
 
 	public int getDiasDeOcupacion() {
 
-		diasDeOcupacion = (int) ChronoUnit.DAYS.between(fechaInicioAlquiler, fechaFinalAlquiler);
-		return diasDeOcupacion;
+		return (int) ChronoUnit.DAYS.between(fechaInicioAlquiler, fechaFinalAlquiler);
+		
 
 	}
 	public int precioAlquiler() {
-		this.precioAlquiler=this.diasDeOcupacion*barco.precioAlquilerBarco();
+		this.precioAlquiler=this.getDiasDeOcupacion()*barco.precioAlquilerBarco();
 		return this.precioAlquiler;
 	}
 
@@ -68,8 +67,6 @@ public class Alquiler {
 		this.precioAlquiler = precioAlquiler;
 	}
 
-	public void setDiasDeOcupacion(int diasDeOcupacion) {
-		this.diasDeOcupacion = diasDeOcupacion;
-	}
+	
 
 }

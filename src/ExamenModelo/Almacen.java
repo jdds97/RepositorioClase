@@ -5,12 +5,17 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Almacen {
+	
+	protected Bebida[][] bebidas;
+	
+	
 	protected Estanteria[] estanterias;
 	protected BebidaAzucarada[] bebidasAzucaradas;
 	protected Agua[] agua;
 	protected Marca marca;
 	private double precioBebidasEstanterias;
 	private double precioBebidasAlmacen;
+	private double precioTotalMarca;
 	Random random = new Random();
 	private int probabilidadAguaORefresco;
 
@@ -18,18 +23,18 @@ public class Almacen {
 		this.estanterias = new Estanteria[5];
 		this.bebidasAzucaradas = new BebidaAzucarada[6];
 		for (int i = 0; i < bebidasAzucaradas.length; i++) {
-			this.bebidasAzucaradas[i]=new BebidaAzucarada(0, 0, 0.0,0.0,new Marca(nombreMarca, this.bebidasAzucaradas[i]));
+			this.bebidasAzucaradas[i] = new BebidaAzucarada();
 		}
 		this.agua = new Agua[6];
 		for (int i = 0; i < agua.length; i++) {
-			this.agua[i]=new Agua(0, 0, 0, 0, new Marca(agua[i].nombreMarca,this.agua[i]),agua[i].nombresAgua,agua[i].nombreSeleccionado, null);
+			this.agua[i] = new Agua();
 		}
-		
 
 		for (int i = 0; i < this.estanterias.length; i++) {
 			probabilidadAguaORefresco = random.nextInt(2);
 			switch (probabilidadAguaORefresco) {
 			case 0: {
+				this.estanterias
 				this.estanterias[i] = new Estanteria(this.bebidasAzucaradas);
 			}
 				break;
@@ -42,6 +47,7 @@ public class Almacen {
 		}
 
 	}
+
 	public Almacen(int numeroEstanterias) {
 		this.estanterias = new Estanteria[5];
 		this.bebidasAzucaradas = new BebidaAzucarada[6];
@@ -65,7 +71,7 @@ public class Almacen {
 
 	public double obtenerPrecioBebidasAlmacen() {
 		for (int i = 0; i < this.estanterias.length; i++) {
-			precioBebidasAlmacen += estanterias[i].precioBebidasEstanteria;
+			precioBebidasAlmacen += estanterias[i].getPrecioBebidasEstanteria();
 		}
 		return precioBebidasAlmacen;
 	}
@@ -73,14 +79,15 @@ public class Almacen {
 	public void agregarProducto(Bebida bebida) {
 		for (int i = 0; i < this.estanterias.length; i++) {
 			for (int j = 0; j < this.bebidasAzucaradas.length; j++) {
-				for (int k=0; k<this.agua.length;k++) {
-					if ((!estanterias[i].bebida.equals(null)&& !(estanterias[i].getIdBebidaEstanteria()==(bebida.getId())))) {
-						
+				for (int k = 0; k < this.agua.length; k++) {
+					if ((!estanterias[i].bebida.equals(null)
+							&& !(estanterias[i].getIdBebidaEstanteria() == (bebida.getId())))) {
+
 					}
 				}
-				
+
 			}
-			
+
 		}
 
 	}
@@ -95,28 +102,21 @@ public class Almacen {
 
 	public double getPrecioTotalMarca(Marca marca) {
 		for (int i = 0; i < this.estanterias.length; i++) {
-			for (int j = 0; j < this.bebidasAzucaradas.length; j++) {
-				for (int k=0; k<this.agua.length;k++) {
-					if ((!estanterias[i].bebida.equals(null)&& !(estanterias[i].getIdBebidaEstanteria()==(marca.getId())))) {
-						
-					}
-				}
-				
-			}
+
+			precioTotalMarca = this.estanterias[i].getMarca(marca).bebida.precioFinal;
 		}
-		return precioBebidasAlmacen;
-			
-		
+		return precioTotalMarca;
+
 	}
 
 	public void eliminarProducto(int id) {
-		
+
 		for (int i = 0; i < this.estanterias.length; i++) {
-			if(id==estanterias[i].getIdBebidaEstanteria()) {
-				estanterias[i].bebida=null;
+			if (id == estanterias[i].getIdBebidaEstanteria()) {
+				estanterias[i].bebida = null;
 			}
 		}
-		
+
 	}
 
 	public void mostrarInventario() {
@@ -126,12 +126,16 @@ public class Almacen {
 	}
 
 	public void ampliarAlmacen(int numeroEstanterias) {
-		if(!this.estanterias.equals(null)) {
+		if (!this.estanterias.equals(null)) {
 			new Almacen(numeroEstanterias);
 		}
-		
+
 	}
 
-
+	public Marca getMarca() {
+		return marca;
+		// TODO Auto-generated method stub
+		
+	}
 
 }

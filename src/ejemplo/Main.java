@@ -1,11 +1,13 @@
 package ejemplo;
 
+import examenJUnit.RepasoExamen;
+
 public class Main {
 
     public static void main(String[] args) {
 
    	 System.out.print(contar(1,1));//Queremos pintar un cuadrado de tamaño 5
-
+   	RepasoExamen.precioProducto(1001,true);
     }
 
 /**

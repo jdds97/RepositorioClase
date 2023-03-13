@@ -9,14 +9,14 @@ public abstract  class Barco {
         protected int eslora;
         protected LocalDate fechaFabricacion;
         protected int potenciaCV;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		protected final int VALOR_FIJO=800;
 	
         
         public Barco(String matricula, int eslora, String fechaFabricacion,int potenciaCV) {
             this.matricula = matricula;
             this.eslora = eslora;
-            this.fechaFabricacion = LocalDate.parse(fechaFabricacion, formatter);
+            this.fechaFabricacion = LocalDate.parse(fechaFabricacion, FORMATTER);
             this.potenciaCV = potenciaCV;
         }
 
@@ -80,16 +80,13 @@ public abstract  class Barco {
 		 * @return the formatter
 		 */
 		public DateTimeFormatter getFormatter() {
-			return formatter;
+			return FORMATTER;
 		}
 
 		/**
 		 * @param formatter the formatter to set
 		 */
-		public void setFormatter(DateTimeFormatter formatter) {
-			this.formatter = formatter;
-		}
-
+		
 		/**
 		 * @return the vALOR_FIJO
 		 */
