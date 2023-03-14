@@ -35,7 +35,7 @@ public class RepasoExamen {
      * @return Double - precioFinal.
      */
 	
-    public static Double precioProducto(double precioBase, boolean ticketOferta) {
+    public static Double precioProducto(double precioBase, Boolean ticketOferta) {
    	 Double resultado=null;
    	 if(precioBase>=0)//Si el precio base es un valor positivo
    		 resultado=precioBase;

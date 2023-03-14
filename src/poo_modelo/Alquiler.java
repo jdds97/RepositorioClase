@@ -6,11 +6,16 @@ import java.time.temporal.ChronoUnit;
 
 public class Alquiler {
 	private Cliente cliente;
+	private Inquilino inquilino;
+	private Piso piso;
 	private LocalDate fechaInicioAlquiler;
 	private LocalDate fechaFinalAlquiler;
 	private Barco barco;
-	protected int precioAlquiler;
-	
+	private int precioAlquilerBarco;
+	private static double precioAlquilerPiso;
+	private static double alquilerPisoMasCaro;
+	public static final double IVA = 0.21;
+
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	public Alquiler(Cliente cliente, String fechaInicio, String fechaFinal, Barco barco) {
@@ -21,6 +26,22 @@ public class Alquiler {
 
 	}
 
+	public Alquiler(Inquilino inquilino, Piso piso, String fechaInicio, String fechaFinal) {
+		this.inquilino = inquilino;
+		this.piso = piso;
+		this.fechaInicioAlquiler = LocalDate.parse(fechaInicio, formatter);
+		this.fechaFinalAlquiler = LocalDate.parse(fechaFinal, formatter);
+	}
+
+	
+
+	public static double getPrecioAlquilerMasCaro() {
+
+		if (precioAlquilerPiso > alquilerPisoMasCaro)
+			alquilerPisoMasCaro = precioAlquilerPiso;
+		return alquilerPisoMasCaro;
+	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -28,15 +49,25 @@ public class Alquiler {
 	public int getDiasDeOcupacion() {
 
 		return (int) ChronoUnit.DAYS.between(fechaInicioAlquiler, fechaFinalAlquiler);
-		
 
 	}
-	public int precioAlquiler() {
-		this.precioAlquiler=this.getDiasDeOcupacion()*barco.precioAlquilerBarco();
-		return this.precioAlquiler;
+
+	public int getprecioAlquilerBarco() {
+		this.precioAlquilerBarco = this.getDiasDeOcupacion() * barco.precioAlquilerBarco();
+		return this.precioAlquilerBarco;
 	}
 
-	
+	public double getprecioAlquilerPiso() {
+		precioAlquilerPiso = piso.getPrecioAlquiler() - (piso.getPrecioAlquiler() * inquilino.descuento());
+		return piso.getPrecioAlquiler() - (piso.getPrecioAlquiler() * inquilino.descuento());
+	}
+
+	@Override
+	public String toString() {
+		return "Alquiler [cliente=" + cliente + ", inquilino=" + inquilino + ", piso=" + piso + ", fechaInicioAlquiler="
+				+ fechaInicioAlquiler + ", fechaFinalAlquiler=" + fechaFinalAlquiler + ", barco=" + barco
+				+ ", precioAlquiler=" + precioAlquilerBarco + ", precioAlquilerPiso()=" + getprecioAlquilerPiso() + "]";
+	}
 
 	/**
 	 * @return the fechaInicioAlquiler
@@ -48,7 +79,7 @@ public class Alquiler {
 	/**
 	 * @param fechaInicioAlquiler the fechaInicioAlquiler to set
 	 */
-	
+
 	/**
 	 * @return the fechaFinalAlquiler
 	 */
@@ -63,10 +94,8 @@ public class Alquiler {
 		this.fechaFinalAlquiler = fechaFinalAlquiler;
 	}
 
-	public  void setPrecioAlquiler(int precioAlquiler) {
-		this.precioAlquiler = precioAlquiler;
+	public void setPrecioAlquiler(int precioAlquiler) {
+		this.precioAlquilerBarco = precioAlquiler;
 	}
-
-	
 
 }
