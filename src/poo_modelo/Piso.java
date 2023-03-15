@@ -1,10 +1,11 @@
 package poo_modelo;
 
 public class Piso {
-	private static final double IVA = 0.21;
+	public static final double IVA = 0.21;
 	private int planta;
 	private int numeroPuerta;
 	private double precioBaseMensual;
+	
 	public Piso( int planta, int numeroPuerta, double precioBaseMensual) {
 		this.planta = planta;
 		this.numeroPuerta = numeroPuerta;
@@ -31,7 +32,7 @@ public class Piso {
 		this.precioBaseMensual = precioBaseMensual;
 	}
 	public double getPrecioAlquiler() {
-		return this.getPrecioBaseMensual()*IVA;
+		return (this.getPrecioBaseMensual()*IVA)+getPrecioBaseMensual();
 	}
 	
 }

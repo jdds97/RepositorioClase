@@ -1,15 +1,19 @@
 package poo_modelo;
 
 public class InquilinoEmpresa extends Inquilino {
-	
-	public InquilinoEmpresa(String nombreCompleto, String doc1) {
-		super(nombreCompleto, doc1);
-		// TODO Auto-generated constructor stub
+	private String cif;
+	public InquilinoEmpresa(String nombreCompleto, String cif) {
+		super(nombreCompleto);
+	this.cif=cif;
 	}
 
 	@Override
 	public double descuento() {
 		return 0.1;
+	}
+
+	public String getCif() {
+		return cif;
 	}
 	
 }

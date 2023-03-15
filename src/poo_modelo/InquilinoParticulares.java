@@ -1,21 +1,25 @@
 package poo_modelo;
 
 public class InquilinoParticulares extends Inquilino {
+	private String nif;
 
-	public InquilinoParticulares(String nombreCompleto, String doc1, Alquiler alquiler) {
-		super(nombreCompleto, doc1);
-		// TODO Auto-generated constructor stub
+	public InquilinoParticulares(String nombreCompleto, String nif) {
+		super(nombreCompleto);
+		this.nif = nif;
 	}
 
 	@Override
 	public double descuento() {
-		// TODO Auto-generated method stub
+
 		return 0;
+	}
+
+	public String getNif() {
+		return nif;
 	}
 
 	/**
 	 * 
 	 */
-	
 
 }

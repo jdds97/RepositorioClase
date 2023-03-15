@@ -3,16 +3,14 @@ package poo_modelo;
 import java.util.Objects;
 
 public abstract class Inquilino {
-	protected String nombreCompleto;
-	protected String doc;
+	private String nombreCompleto;
 
 	/*
 	 * Constructor de Inquilino
 	 */
-	public Inquilino(String nombreCompleto, String doc1) {
+	public Inquilino(String nombreCompleto) {
 
 		this.nombreCompleto = nombreCompleto;
-		this.doc = doc1;
 	}
 
 	@Override
@@ -24,7 +22,7 @@ public abstract class Inquilino {
 		if (getClass() != obj.getClass())
 			return false;
 		Inquilino other = (Inquilino) obj;
-		return Objects.equals(doc, other.doc);
+		return Objects.equals(nombreCompleto, other.nombreCompleto);
 	}
 
 	/*
@@ -38,9 +36,7 @@ public abstract class Inquilino {
 		this.nombreCompleto = nombreCompleto;
 	}
 
-	public String getDOC() {
-		return doc;
-	}
+	
 
 	public abstract double descuento();
 

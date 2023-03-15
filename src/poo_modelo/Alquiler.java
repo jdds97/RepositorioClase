@@ -12,14 +12,26 @@ public class Alquiler {
 	private LocalDate fechaFinalAlquiler;
 	private Barco barco;
 	private int precioAlquilerBarco;
-	private static double precioAlquilerPiso;
-	private static double alquilerPisoMasCaro;
-	public static final double IVA = 0.21;
+	private Alquiler [] alquiler;
+	
+	public Alquiler getPrecioAlquilerMasCaro1() {
+		Alquiler alquilerPisoMasCaro=this.alquiler[0];
+		for (int i = 1; i < this.alquiler.length; i++) {
+			
+			if(!(this.alquiler[0]==null) && this.alquiler[i].getprecioAlquilerPiso()>alquilerPisoMasCaro.getprecioAlquilerPiso()) {
+				alquilerPisoMasCaro=this.alquiler[i];
+				
+			}
+		}
+		
+		return alquilerPisoMasCaro;
+	}
 
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	public Alquiler(Cliente cliente, String fechaInicio, String fechaFinal, Barco barco) {
 		this.cliente = cliente;
+	
 		this.fechaInicioAlquiler = LocalDate.parse(fechaInicio, formatter);
 		this.fechaFinalAlquiler = LocalDate.parse(fechaFinal, formatter);
 		this.barco = barco;
@@ -27,6 +39,7 @@ public class Alquiler {
 	}
 
 	public Alquiler(Inquilino inquilino, Piso piso, String fechaInicio, String fechaFinal) {
+		this.alquiler=alquiler;
 		this.inquilino = inquilino;
 		this.piso = piso;
 		this.fechaInicioAlquiler = LocalDate.parse(fechaInicio, formatter);
@@ -35,12 +48,6 @@ public class Alquiler {
 
 	
 
-	public static double getPrecioAlquilerMasCaro() {
-
-		if (precioAlquilerPiso > alquilerPisoMasCaro)
-			alquilerPisoMasCaro = precioAlquilerPiso;
-		return alquilerPisoMasCaro;
-	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -58,7 +65,7 @@ public class Alquiler {
 	}
 
 	public double getprecioAlquilerPiso() {
-		precioAlquilerPiso = piso.getPrecioAlquiler() - (piso.getPrecioAlquiler() * inquilino.descuento());
+		
 		return piso.getPrecioAlquiler() - (piso.getPrecioAlquiler() * inquilino.descuento());
 	}
 
