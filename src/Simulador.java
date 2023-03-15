@@ -7,8 +7,7 @@ public class Simulador {
 		do {
 		try {
 			
-		eleccion=Integer.parseInt(JOptionPane.showInputDialog(null, "¿Qué desea realizar" + "\n" + "1 - Dar de alta un Saltador"
-				+"\n"+ "2 - Simular competicion" + "\n" + "3 - Ver estadísticas"));
+		eleccion=
 		switch (eleccion) {
 		case 1: {
 			Entrenador entrenador=new Entrenador(null, null, null, eleccion);

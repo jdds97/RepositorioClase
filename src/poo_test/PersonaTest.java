@@ -1,4 +1,4 @@
-package test;
+package poo_test;
 
 import static org.junit.Assert.assertEquals;
 
