@@ -1,9 +1,7 @@
 /**
  * 
  */
-package Examen2Gestion;
-
-
+package Examen2Modelo;
 
 import javax.swing.JOptionPane;
 
@@ -27,47 +25,52 @@ public class TiendaComics {
 		int eleccionPrincipal = 0;
 		int eleccionComic = 0;
 		int eleccionPrecio = 0;
-		int eleccionITQ=0;
+		int eleccionITQ = 0;
 		String eleccionTitulo = "";
 		String eleccionSubtitulo = "";
 		String eleccionGenero = "";
 		String eleccionComicGenero = "";
 		String eleccionComicIdRelevancia = "";
-		
 
 		ComicClasico[] comicClasico = new ComicClasico[100];
+		do {
+			do {
+				try {
+					eleccionPrincipal = Integer.parseInt(JOptionPane.showInputDialog("�Que desea realizar?" + "\n"
+							+ "1.Dar de alta un comic" + "\n" + "2.Listar los comics de un genero" + "\n"
+							+ "3.Listar los comics cuyo nivel de relevancia esta por encima de la media" + "\n"
+							+ "4.Salir"));
+					salir = true;
+				} catch (NumberFormatException e) {
 
-		do {
-			try {
-				eleccionPrincipal = Integer.parseInt(JOptionPane.showInputDialog("¿Qué desea realizar?" + "\n"
-						+ "1.Dar de alta un cómic" + "\n" + "2.Listar los cómics de un género" + "\n"
-						+ "3.Listar los cómics cuyo nivel de relevancia está por encima de la media" + "\n"
-						+ "4.Salir"));
-			} catch (NumberFormatException e) {
-				
-				salir = false;
-			}
-			salir = true;
-		} while (!salir);
-		do {
+					salir = false;
+				}
+			} while (!salir);
 			switch (eleccionPrincipal) {
 
 			case 1:
-				try {
+				do {
 
-					eleccionComic = Integer.parseInt(JOptionPane.showInputDialog(
-							"¿Qué tipo de comic quiere dar de alta?" + "\n" + "1.Estandar" + "\n" + "2.Americano"));
-				} catch (NumberFormatException e) {
-					JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-					salir = false;
-				}
+					try {
 
+						eleccionComic = Integer
+								.parseInt(JOptionPane.showInputDialog("�Que tipo de comic quiere dar de alta?" + "\n"
+										+ "1.Estandar" + "\n" + "2.Americano"));
+						salir = true;
+					} catch (NumberFormatException e) {
+						JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
+
+						salir=false;
+					}
+
+				} while (!salir);
 				switch (eleccionComic) {
 				case 1:
 
 					for (int i = 0; i < comicClasico.length; i++) {
 
 						if (comicClasico[i] == null) {
+							resetearEstadisticas();
 							comicClasico[i] = new ComicEstandar();
 							comicCreado = comicClasico[i];
 							i = 100;
@@ -75,162 +78,197 @@ public class TiendaComics {
 						}
 
 					}
+
 					do {
 						try {
-							eleccionTitulo = JOptionPane.showInputDialog("¿Cuál es el titulo?");
+							eleccionTitulo = JOptionPane.showInputDialog("�Cual es el titulo?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-							salir = false;
+							salir=false;
 						}
-						comicCreado.setTitulo(eleccionTitulo);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setTitulo(eleccionTitulo);
+
 					do {
 						try {
-							eleccionSubtitulo = JOptionPane.showInputDialog("¿Cuál es el subtitulo?");
+							eleccionSubtitulo = JOptionPane.showInputDialog("�Cual es el subtitulo?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-							salir = false;
+							salir=false;
 						}
-						comicCreado.setSubTitulo(eleccionSubtitulo);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setSubTitulo(eleccionSubtitulo);
 					do {
 						try {
-							eleccionPrecio = Integer.parseInt(JOptionPane.showInputDialog("¿Cuál es el precio?"));
+							eleccionPrecio = Integer.parseInt(JOptionPane.showInputDialog("�Cual es el precio?"));
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-							salir = false;
+							salir=false;
 						}
-						comicCreado.setPrecio(eleccionPrecio);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setPrecio(eleccionPrecio);
 					do {
 						try {
-							eleccionGenero = JOptionPane.showInputDialog("¿Cuál es su genero?");
+							eleccionGenero = JOptionPane.showInputDialog("�Cual es su genero?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-							salir = false;
+							salir=false;
 						}
-						comicCreado.setGenero(eleccionGenero);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setGenero(eleccionGenero);
+
+					JOptionPane.showMessageDialog(null,
+							"******************" + "Comic creado satisfactoriamente" + "******************");
+					JOptionPane.showMessageDialog(null, comicCreado.toString());
 
 					break;
 
 				case 2:
+
 					for (int i = 0; i < comicClasico.length; i++) {
 
 						if (comicClasico[i] == null) {
 							comicClasico[i] = new ComicAmericano();
 							comicCreado = comicClasico[i];
-							i = comicClasico.length-comicClasico[i].getId();
-
+							i =100;
+							
 						}
 					}
 					do {
 						try {
-							eleccionTitulo = JOptionPane.showInputDialog("¿Cuál es el titulo?");
+							eleccionTitulo = JOptionPane.showInputDialog("�Cual es el titulo?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
-							salir = false;
+
 						}
-						comicCreado.setTitulo(eleccionTitulo);
-						salir = true;
 					} while (!salir);
+					comicCreado.setTitulo(eleccionTitulo);
+
 					do {
 						try {
-							eleccionSubtitulo = JOptionPane.showInputDialog("¿Cuál es el subtitulo?");
+							eleccionSubtitulo = JOptionPane.showInputDialog("�Cual es el subtitulo?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
 							salir = false;
 						}
-						comicCreado.setSubTitulo(eleccionSubtitulo);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setSubTitulo(eleccionSubtitulo);
 					do {
 						try {
-							eleccionPrecio = Integer.parseInt(JOptionPane.showInputDialog("¿Cuál es el precio?"));
+							eleccionPrecio = Integer.parseInt(JOptionPane.showInputDialog("�Cual es el precio?"));
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
 							salir = false;
 						}
-						comicCreado.setPrecio(eleccionPrecio);
-						salir = true;
+
 					} while (!salir);
+					comicCreado.setPrecio(eleccionPrecio);
 					do {
 						try {
-							eleccionGenero = JOptionPane.showInputDialog("¿Cuál es su genero?");
+							eleccionGenero = JOptionPane.showInputDialog("�Cual es su genero?");
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
 							salir = false;
 						}
-						comicCreado.setGenero(eleccionGenero);
-						salir=true;					
+
 					} while (!salir);
-					
+					comicCreado.setGenero(eleccionGenero);
+
 					do {
 						try {
-							eleccionITQ = Integer.parseInt(JOptionPane.showInputDialog("¿Cuál es su American ITQ?"));
+							eleccionITQ = Integer.parseInt(JOptionPane.showInputDialog("�Cual es su American ITQ?"));
+							salir = true;
 						} catch (Exception e) {
 							JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
 							salir = false;
 						}
+
+					} while (!salir);
 					comicCreado.setAmericanITQ(eleccionITQ);
-					salir=true;
-					} while (!salir);
 
 					JOptionPane.showMessageDialog(null,
 							"******************" + "Comic creado satisfactoriamente" + "******************");
-					comicCreado.toString();
-					salir = false;
+					JOptionPane.showMessageDialog(null, comicCreado.toString());
 
+					break;
 				}
 				break;
-
+				
 			case 2:
+
 				do {
 					try {
 						eleccionComicGenero = JOptionPane.showInputDialog("Indica el genero".toLowerCase());
+						salir = true;
 					} catch (Exception e) {
-
+						JOptionPane.showMessageDialog(null, "Dato mal introducido intente de nuevo");
+						salir = false;
 					}
-					for (int i = 0; i < comicClasico.length; i++) {
-						if (comicClasico[i].getGenero().equals(eleccionComicGenero)) {
-							comicClasico[i].toString();
-						} else {
-							JOptionPane.showMessageDialog(null, "No hay ningún comic de dicho genero en el sistema");
-						}
-					}
-					salir = true;
 				} while (!salir);
-				salir = false;
+
+				for (int i = 0; i < comicClasico.length; i++) {
+					if (comicClasico[i].getGenero().equals(eleccionComicGenero)) {
+						comicClasico[i].toString();
+					} else {
+						JOptionPane.showMessageDialog(null, "No hay ningun comic de dicho genero en el sistema");
+						
+					}
+
+				}
+
 				break;
+
 			case 3:
 				do {
 					try {
 						eleccionComicIdRelevancia = JOptionPane.showInputDialog("Indica el genero".toLowerCase());
+						salir = true;
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, "Dato mal introducido");
+						salir=false;
 					}
-					
-						
-						
-						JOptionPane.showMessageDialog(null, "No implementado");
-						//} else {
-							JOptionPane.showMessageDialog(null, "No hay ningún comic de dicho genero en el sistema");
-						
-					
-				
-					salir = true;
 				} while (!salir);
+				comicCreado.getIdRelevanciaComic(comicClasico);
+				JOptionPane.showMessageDialog(null, "No implementado");
+				// } else {
+				JOptionPane.showMessageDialog(null, "No hay ningun comic de dicho genero en el sistema");
+
+				salir = false;
 				break;
+
 			case 4:
 				JOptionPane.showMessageDialog(null, "Hasta pronto");
-				salir = true;
-			}
-			break;
+				
 
-		} while (!salir);
+				break;
+
+			}
+			comicCreado=null;
+
+		} while (eleccionPrincipal != 4);
+	}
+	public static void resetearEstadisticas() {
+		int eleccionPrincipal = 0;
+		int eleccionComic = 0;
+		int eleccionPrecio = 0;
+		int eleccionITQ = 0;
+		String eleccionTitulo = "";
+		String eleccionSubtitulo = "";
+		String eleccionGenero = "";
+		String eleccionComicGenero = "";
+		String eleccionComicIdRelevancia = "";
 	}
 }
