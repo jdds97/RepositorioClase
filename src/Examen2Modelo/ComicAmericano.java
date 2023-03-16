@@ -3,9 +3,9 @@ package Examen2Modelo;
 
 public class ComicAmericano extends ComicClasico {
 	private int americanITQ;
-
+	private final static double CTE_USA=1.75;
 	public ComicAmericano() {
-		super();
+		
 		
 	}
 
@@ -18,13 +18,13 @@ public class ComicAmericano extends ComicClasico {
 	}
 	@Override
 	public String toString() {
-		return "-Identificador=" + getIdRelevanciaMayor() + "\n "
+		return "-Identificador=" + this.getIdComic() + "\n "
 				+ (getTitulo() != null ? "Titulo:" + getTitulo() + "\n " : "") + (getFecha() != null ? "Fecha:" + getFecha() + ", " : "")
 				+ (getGenero() != null ? "Genero:" + getGenero() + "\n " : "") + "Precio:" + getPrecio() + "\n "
 				+ (americanITQ != 0 ? "American ITQ :" + americanITQ : "") ;
 	}
 	@Override
-	public void constante() {
-		
+	public double constante() {
+		return CTE_USA;
 	}
 }

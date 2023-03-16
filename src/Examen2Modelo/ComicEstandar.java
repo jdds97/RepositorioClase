@@ -4,6 +4,8 @@ package Examen2Modelo;
 
 public class ComicEstandar extends ComicClasico {
 
+	private static final double CTE = 1.5;
+
 	/**
 	 * @param id
 	 * @param titulo
@@ -16,8 +18,8 @@ public class ComicEstandar extends ComicClasico {
 	}
 
 	@Override
-	public void constante() {
+	public double constante() {
 	
-
+		return CTE;
 	}
 }

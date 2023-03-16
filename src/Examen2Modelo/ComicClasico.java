@@ -1,143 +1,100 @@
 package Examen2Modelo;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+
+
 
 public abstract class ComicClasico {
-	private int idRelevanciaMayor;
-	private int idRelevanciaMenor;
-	private int idRelevanciaComic;
+	private double nivelRelevanciaMedio;
+	private int idComic;
 	private static int id;
 	private String titulo;
 	private String subTitulo;
 	private LocalDate fecha = LocalDate.now();
 	private String genero;
 	private int precio;
-	private ComicClasico[] idRelevancia;
 
 	public ComicClasico() {
 		this.id++;
-		this.idRelevanciaComic = this.id;
+		this.idComic = this.id;
 	}
 
-	/**
-	 * @return the comicClasico
-	 */
-	public ComicClasico[] getComicClasico() {
-		return idRelevancia;
+
+	public int setAmericanITQ(int eleccionITQ) {
+		return setAmericanITQ(eleccionITQ);
+
 	}
 
-	/**
-	 * @param comicClasico the comicClasico to set
-	 */
-	public void setComicClasico(ComicClasico[] comicClasico) {
-		this.idRelevancia = comicClasico;
+	public void setNivelRelevanciaMedio(double nivelDeRelevanciaMedio) {
+		this.nivelRelevanciaMedio+=nivelDeRelevanciaMedio;
 	}
-
-	/**
-	 * @param id
-	 * @param titulo
-	 * @param fecha
-	 * @param genero
-	 * @param precio
-	 */
-
-	/**
-	 * @return the titulo
-	 */
-
-	public String getTitulo() {
-
-		return titulo;
-	}
-
-	/**
-	 * @param titulo the titulo to set
-	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public String getSubTitulo() {
-		return subTitulo;
 	}
 
 	public void setSubTitulo(String subTitulo) {
 		this.subTitulo = subTitulo;
 	}
 
-	/**
-	 * @return the fecha
-	 */
-	public LocalDate getFecha() {
-		return fecha;
-	}
-
-	/**
-	 * @param fecha the fecha to set
-	 */
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
-
-	/**
-	 * @return the genero
-	 */
-	public String getGenero() {
-		return genero;
-	}
-
-	/**
-	 * @param genero the genero to set
-	 */
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
-	/**
-	 * @return the precio
-	 */
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	public String getSubTitulo() {
+		return subTitulo;
+	}
+
+
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
 	public int getPrecio() {
 		return precio;
 	}
 
+
+	public int getIdComic() {
+		// TODO Auto-generated method stub
+		return idComic;
+	}
+	
+	public double getNivelRelevanciaMedio() {
+		return nivelRelevanciaMedio;
+	}
 	/**
-	 * @param precio the precio to set
+	 * @return Retorna el nivel de relevancia según sea un comic Americano u
+	 *         Estándar ya que cambian las constantes en cada clase.
 	 */
-	public void setPrecio(int precio) {
-		this.precio = precio;
+	public double getNivelDeRelevancia() {
+		return precio * constante();
 	}
 
 	/**
-	 * @return the id
+	 * Metodo abstracto para implementarlo en cada clase según sea el valor del dato
+	 * en cada clase que se vaya a implementar nuevamente
+	 * 
+	 * @return
 	 */
-	public int getId() {
+	public abstract double constante();
 
-		return id;
-	}
-
-	public int getRelevanciaMayor() {
-
-		for (int i = 0; i < idRelevancia.length; i++) {
-			if (!(this.idRelevancia[0] == null) && this.idRelevancia[i].getId() > this.idRelevanciaMayor) {
-				this.idRelevanciaMayor = this.idRelevancia[i].getId();
-			}
-			if (!(this.idRelevancia[0] == null) && this.idRelevancia[i].getId() < this.idRelevanciaMenor) {
-				this.idRelevanciaMenor = this.idRelevancia[i].getId();
-			}
-
-		}
-		return this.idRelevanciaMayor;
-	}
-
-	public void darDeAltaComic(ComicClasico comic) {
-
-		for (int i = 0; i < idRelevancia.length; i++) {
-			if (this.idRelevancia[0] == (null))
-				this.idRelevancia[0] = comic;
-
-		}
-	}
-
+	/**
+	 * Metodo equals para saber si son el mismo comic a través de su id
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -147,38 +104,21 @@ public abstract class ComicClasico {
 		if (getClass() != obj.getClass())
 			return false;
 		ComicClasico other = (ComicClasico) obj;
-		return getIdRelevanciaMayor() == other.getIdRelevanciaMayor();
+		return idComic == other.idComic;
 	}
 
-	public abstract void constante();
 
 	@Override
 	public String toString() {
-		return "-Identificador=" + getIdRelevanciaMayor() + "\n " + (titulo != null ? "-Titulo:" + titulo + "\n " : "")
-				+ (fecha != null ? "-Fecha:" + fecha + "\n " : "") + (genero != null ? "-Genero:" + genero + "\n " : "")
-				+ "-Precio:" + precio + "\n " + (idRelevanciaComic != 0 ? "-idRelevancia=" + idRelevanciaComic : "");
+		return "ComicClasico [nivelRelevanciaMedio=" + nivelRelevanciaMedio + ", idComic=" + idComic + ", titulo="
+				+ titulo + ", subTitulo=" + subTitulo + ", fecha=" + fecha + ", genero=" + genero + ", precio=" + precio;
 	}
 
-	public int getIdRelevanciaMayor() {
-		return idRelevanciaMayor;
-	}
+	
 
-	public int setAmericanITQ(int eleccionITQ) {
-		return setAmericanITQ(eleccionITQ);
-
-	}
-
-	public int getIdRelevanciaMenor() {
-		return idRelevanciaMenor;
-	}
-
-	public int getIdRelevanciaComic(ComicClasico[] comic) {
-		for (int i = 0; i < idRelevancia.length; i++) {
-			for (int j = 0; j < comic.length; j++) {
-				this.idRelevancia[i].idRelevanciaComic = comic[j].idRelevanciaComic;
-				this.idRelevanciaComic = this.idRelevancia[i].idRelevanciaComic;
-			}
-		}
-		return this.idRelevanciaComic;
-	}
+	/**
+	 * Metodo toString para saber los datos del comic
+	 */
+	
+	
 }
