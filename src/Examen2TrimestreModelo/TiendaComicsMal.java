@@ -2,6 +2,8 @@ package Examen2Modelo;
 
 import javax.swing.JOptionPane;
 
+import Examen2Modelo.ComicClasico;
+
 /**
  * En esta clase crearemos los diferentes comics con sus diferentes acciones que
  * pedira de un menu para su creacion
@@ -9,19 +11,20 @@ import javax.swing.JOptionPane;
  * @author Jesus de Dios
  *
  */
-public class TiendaComic {
+public class TiendaComicsMal {
 	// Array de los 100 comics clasicos con una longitud de 100 comics
 	ComicClasico[] comicsClasicos;
 	// Creamos un comic estatico para que coja los metodos y diferentes getters y
 	// setters
 	// de ComicClasico para que TiendaComic pueda hacer las diferentes acciones que
 	// pide el programa
+	public String accionaRealizar="";
 
 	/**
 	 * Constructor vacio de tienda de comics con los 100 comics por crear en el menu
 	 * de CreacionTiendaComic
 	 */
-	public TiendaComic() {
+	public TiendaComicsMal() {
 		this.comicsClasicos = new ComicClasico[100];
 	}
 
@@ -41,8 +44,9 @@ public class TiendaComic {
 		ComicClasico comicEncontrado;
 		boolean encontrado=false;
 		for (int i = 0; i < comicsClasicos.length && !encontrado; i++) {
-			if(comicClasicos) {
-				
+			if(comicsClasicos[i]!=null) {
+				comicEncontrado=comicsClasicos[i];
+				encontrado=true;
 			}
 		}
 		return comicEncontrado;
