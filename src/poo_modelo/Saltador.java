@@ -12,9 +12,9 @@ public class Saltador {
 	
 
 	public Saltador(String nombre, String apellidos, Entrenador entrenador, Nacionalidad nacionalidad) {
-		this.saltos = new Salto[5];
+		this.saltos = new Salto[5];//null
 		for (int i = 0; i < this.saltos.length; i++) {
-			this.saltos[i] = new Salto();
+			this.saltos[i] = new Salto();//sin parametros 
 		}
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -84,12 +84,12 @@ public class Saltador {
 	public int getPuntosTotalCompeticion(){
 		for (int i = 0; i < saltos.length; i++) {
 			for (int j = 0; i < saltos[i].getSalto().length; j++) {
-			this.saltos[i].getSaltoPuntuacionIndividual()=this.saltos[i].getSalto()[j].getMejorPuntuacionSalto()-this.saltos[i].getSalto()[j].getPeorPuntuacionSalto()
+			//this.saltos[i].getSaltoPuntuacionIndividual()=this.saltos[i].getSalto()[j].getMejorPuntuacionSalto()-this.saltos[i].getSalto()[j].getPeorPuntuacionSalto()
 			}
 		}
 		
 		
-		return puntuacionIndividual;
+		return 5;
 		
 	}
 

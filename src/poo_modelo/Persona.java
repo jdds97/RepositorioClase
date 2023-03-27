@@ -48,7 +48,10 @@ public class Persona {
 		this.fechaNacimiento = LocalDate.parse("03-08-1997");
 		this.sexo = 'M';
 	}
-
+	public Persona(String nombre) {
+		this.nombre =nombre;
+	
+	}
 	/**
 	 * <h1 style=color:blue>Acción</h1>
 	 * <hr>
@@ -287,6 +290,14 @@ public class Persona {
 	public Object getEdad() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [" + (nombre != null ? "nombre=" + nombre + ", " : "")
+				+ (apellidos != null ? "apellidos=" + apellidos + ", " : "")
+				+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "") + "sexo=" + sexo + ", "
+				+ (cuentaCorriente != null ? "cuentaCorriente=" + cuentaCorriente : "") + "]";
 	}
 
 	
