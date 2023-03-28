@@ -4,10 +4,11 @@ import java.time.LocalDate;
 
 import javax.swing.JOptionPane;
 
-public class Persona {
+public class Persona implements Comparable<Persona> {
 	// Declaración de atributos privados de una persona.
 	protected String nombre;
 	protected String apellidos;
+	private int edad;
 	protected LocalDate fechaNacimiento;
 	protected char sexo;
 	protected Cuenta cuentaCorriente = null;
@@ -48,8 +49,9 @@ public class Persona {
 		this.fechaNacimiento = LocalDate.parse("03-08-1997");
 		this.sexo = 'M';
 	}
-	public Persona(String nombre) {
+	public Persona(String nombre,int edad) {
 		this.nombre =nombre;
+		this.edad=edad;
 	
 	}
 	/**
@@ -287,11 +289,18 @@ public class Persona {
 			cuentaCorriente = null;
 	}
 
-	public Object getEdad() {
+	public int getEdad() {
 		// TODO Auto-generated method stub
-		return null;
+		return edad;
 	}
-
+	public boolean ismayorDeEdad() {
+	boolean mayorEdad=false;
+		if(edad>=18 && edad<100) {
+		mayorEdad=true;
+	}
+		return mayorEdad;
+	}
+	
 	@Override
 	public String toString() {
 		return "Persona [" + (nombre != null ? "nombre=" + nombre + ", " : "")
@@ -300,6 +309,23 @@ public class Persona {
 				+ (cuentaCorriente != null ? "cuentaCorriente=" + cuentaCorriente : "") + "]";
 	}
 
+	@Override
+	public int compareTo(Persona o) {
+	Persona p=(Persona) o;
+	int numeroSaliente;
+	if (this.edad==p.edad) {
+		numeroSaliente=0;
+	}
+	else if (this.edad<p.edad) {
+		numeroSaliente=-1;
+	}
+	else
+		numeroSaliente=1;
+		return numeroSaliente;
+	}
+
+
+	
 	
 
 	

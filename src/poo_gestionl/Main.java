@@ -2,6 +2,8 @@ package poo_gestionl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import poo_modelo.Saltador;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		/*int numeroLitros;
 
 		Cubo cuboPorDefecto=new Cubo();
@@ -43,14 +46,15 @@ public class Main {
 		List<Persona> alumnosNuevos=new LinkedList<Persona>();
 		ArrayList<Persona>alumnos=new ArrayList<Persona>();
 		ArrayList<Persona>alumnosVacia=new ArrayList<Persona>();
-		Persona luis=new Persona("Luis");
-		Persona espe=new Persona("Espe");
-		Persona dani=new Persona("Dani");
-		Persona jesus=new Persona("Jesus");
+		Persona luis=new Persona("Luis",18);
+		Persona espe=new Persona("Espe",20);
+		Persona dani=new Persona("Dani",15);
+		Persona jesus=new Persona("Jesus",16);
 		alumnos.add(luis);
 		alumnos.add(espe);
 		alumnos.add(dani);
 		alumnos.add(3,jesus);
+		
 		
 		System.out.println("La longitud de los alumnos es de "+alumnos.size());
 		System.out.println("El alumno en la posicion 4 es "+alumnos.get(3));
@@ -62,8 +66,22 @@ public class Main {
 		System.out.println("Espe ya no  está en la lista" +alumnos);
 		System.out.println("Luis está en el indice "+alumnos.indexOf(luis));
 		alumnosVacia.addAll(alumnos);
-		System.out.println(alumnosVacia);
-		alumnosNuevos.addAll(alumnosVacia);
+		System.out.println(alumnos);
+		for (Persona persona : alumnosVacia) {
+			if(persona.ismayorDeEdad())
+			System.out.println(persona.getNombre()+" es mayor de edad");
+			else
+			System.out.println(persona.getNombre()+" es menor de edad");
+		}
+	//Numeros
+		List <Integer> listaNumeros=new LinkedList();
+		listaNumeros.add(4);
+		listaNumeros.add(1);
+		listaNumeros.add(33);
+		
+		Collections.sort(listaNumeros,Collections.reverseOrder());
+		
+		
 	}
 
 }
