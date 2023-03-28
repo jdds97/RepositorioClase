@@ -75,7 +75,7 @@ public class TiendaComicsMal {
 	}
 
 	/**
-	 * @return Retorna el nivel de Relevancia Medio a través de los niveles de
+	 * @return Retorna el nivel de Relevancia Medio a travï¿½s de los niveles de
 	 *         relevancia de cada comic que se van sumando en el array y estos
 	 *         dividiendo por el numero de comic que hay en la tienda.
 	 */
@@ -112,6 +112,21 @@ public class TiendaComicsMal {
 	@Override
 	public String toString() {
 		return getComic().toString();
+	}
+
+	public void getNivelRelevancia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void listarPorGenero() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void listarComicsPorGenero() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,6 +1,7 @@
 package Examen2TrimestreModelo;
 
-public class ComicEstandarMal {
+public class ComicEstandarMal extends ComicClasicoMal  {
+	public final static double CTE=0.5;
 	/**
 	 * @param id
 	 * @param titulo
@@ -13,8 +14,9 @@ public class ComicEstandarMal {
 	}
 
 	@Override
-	public void constante() {
+	public double constante() {
+		return 0.5;
 	
-
 	}
+	
 }

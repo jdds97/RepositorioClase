@@ -8,25 +8,47 @@ public class Utils {
 	//por la que se repita sea que el usuario no ha pulsado en el menu la tecla 4
 	public void menuPrincipal(String eleccion,TiendaComicsMal tienda) {	
 	String pregunta="Que accion desea realizar";
-	ComicClasico comic;
-	tryCatchInt(eleccion);
-	switch (eleccion) {
+	switch (tryCatchInt(pregunta)) {
 	case 1:
-		crearComic(tienda);
+		darDeAlta(tienda);
 		break;
 	case 2:
-		tienda.listarPorGenero();
+		pregunta="Indica el genero";
+		tienda.listaComicsPorGenero(tryCatchString(pregunta));
 		break;
 	case 3:
-		tienda.nivelRelevancia():
+		tienda.getNivelRelevanciaMedioComics();
 		break;
 	default:
 		break;
 	}
-	tienda.crearComic(comic);
-	tienda.setTituloComic();
-	tienda.
 	
+	
+	}
+	public  void darDeAlta(TiendaComicsMal tienda) {
+	String pregunta="Â¿Que tipo de comic quiere dar de alta?"+"\n"
+				+"1.Estandar"+"\n"
+				+"2.Americano";
+	ComicClasico comic;
+		switch (tryCatchInt(pregunta)) {
+		case 1:
+			comic=new ComicAmericano();
+			tienda.setComic(comic);
+			break;
+		case 2:
+			comic=new ComicEstandar();
+			tienda.setComic(comic);
+			break;
+		
+		default:
+			break;
+			
+		}
+		preguntas(comic);
+	}
+	public static void preguntas(ComicClasico comic) {
+	String pregunta="Â¿CuÃ¡l es el titulo?";
+	comic.setTitulo(tryCatchString(pregunta));
 	}
 	public setAtributoObjectInt() {
 		
@@ -50,7 +72,7 @@ public class Utils {
 		
 		case 1:
 			//Si la opcion es 1 nos vuelve a preguntar y el try catch siguiente hace el mismo mecanismo que el anterior 
-			eleccionStringInt = "¿Que tipo de comic quiere dar de alta?" + "\n" + "1.Estandar" + "\n"
+			eleccionStringInt = "ï¿½Que tipo de comic quiere dar de alta?" + "\n" + "1.Estandar" + "\n"
 					+ "2.Americano";
 			tryCatchInt();
 			//Volvemos a coger los valores del trycatch que ha sobreescrito 
@@ -65,23 +87,23 @@ public class Utils {
 				//en la variable estatica eleccionStringTry que la ira cogiendo los diferentes metodos que llamemos que necesiten
 				//de ese String para settear su valor.
 				
-				eleccionString = "¿Cual es el titulo?";
+				eleccionString = "ï¿½Cual es el titulo?";
 				tryCatchString();
 				tienda1.getComicCreado().setTitulo(eleccionStringTry);
 
-				eleccionString = "¿Cual es el subtitulo?";
+				eleccionString = "ï¿½Cual es el subtitulo?";
 				tryCatchString();
 				tienda1.getComicCreado().setSubTitulo(eleccionStringTry);
 				
 				//En el caso de los int me quiero parar para decir que es el mismo mecanismo pero esta vez el JOptionPane lleva un
 				//Integer.parseInt para la respuesta convertirla a entero y como el mecanismo de antes la eleccionString es equiparable
 				//en este caso a la variable estatica eleccionStringInt,por lo que tendremos otro trycatch para ello
-				eleccionStringInt = "¿Cual es el precio?";
+				eleccionStringInt = "ï¿½Cual es el precio?";
 				tryCatchInt();
 
 				tienda1.getComicCreado().setPrecio(eleccionInt);
 
-				eleccionString = "¿Cual es su genero?";
+				eleccionString = "ï¿½Cual es su genero?";
 				tryCatchString();
 				tienda1.getComicCreado().setGenero(eleccionStringTry);
 				//Cuando hemos terminado de crear el comic nos aparecera el mensaje de que ha sido creado satisfactoriamente y aparecera
@@ -102,26 +124,26 @@ public class Utils {
 				//try catch tenga ese valor de String en el escaner JOption Pane y a su vez lo que de de ese escaner se guardara
 				//en la variable estatica eleccionStringTry que la ira cogiendo los diferentes metodos que llamemos que necesiten
 				//de ese String para settear su valor.
-				eleccionString = "¿Cual es el titulo?";
+				eleccionString = "ï¿½Cual es el titulo?";
 				tryCatchString();
 				tienda1.getComicCreado().setTitulo(eleccionStringTry);
 
-				eleccionString = "¿Cual es el subtitulo?";
+				eleccionString = "ï¿½Cual es el subtitulo?";
 				tryCatchString();
 				tienda1.getComicCreado().setSubTitulo(eleccionStringTry);
 				
 				//En el caso de los int me quiero parar para decir que es el mismo mecanismo pero esta vez el JOptionPane lleva un
 				//Integer.parseInt para la respuesta convertirla a entero y como el mecanismo de antes la eleccionString es equiparable
 				//en este caso a la variable estatica eleccionStringInt,por lo que tendremos otro trycatch para ello
-				eleccionStringInt = "¿Cual es el precio?";
+				eleccionStringInt = "ï¿½Cual es el precio?";
 				tryCatchInt();
 				tienda1.getComicCreado().setPrecio(eleccionInt);
 
-				eleccionString = "¿Cual es su genero?";
+				eleccionString = "ï¿½Cual es su genero?";
 				tryCatchString();
 				tienda1.getComicCreado().setGenero(eleccionStringTry);
 
-				eleccionStringInt = "¿Cual es su American ITQ?";
+				eleccionStringInt = "ï¿½Cual es su American ITQ?";
 				tryCatchInt();
 				tienda1.getComicCreado().setITQ(eleccionInt);
 				
@@ -143,7 +165,7 @@ public class Utils {
 			tryCatchString();
 			
 			//Llamamos al metodo que esta implementado en la clase TiendaComic ya que es el que puede buscar en la array que tiene 
-			//creada de comics los diferentes comics que tiene con el String de genero que hemos pasado o quizas no ¿?
+			//creada de comics los diferentes comics que tiene con el String de genero que hemos pasado o quizas no ï¿½?
 			tienda1.listaComicsPorGenero(eleccionStringTry);
 
 			break;
@@ -156,7 +178,7 @@ public class Utils {
 
 		case 4:
 			//Mensaje de despedida :)
-			JOptionPane.showMessageDialog(null, "¡Hasta pronto!");
+			JOptionPane.showMessageDialog(null, "ï¿½Hasta pronto!");
 
 			break;
 
@@ -171,7 +193,7 @@ public class Utils {
 /**
  * Metodo tryCatch para la entrada de datos de int con bucle incorporado
  */
-public String tryCatchString(String pregunta) {
+public  String tryCatchString(String pregunta) {
 	String eleccionTryString = null;
 	boolean salirTryString = false;
 	do {
@@ -228,4 +250,5 @@ public int tryCatchInt(String pregunta) {
 	return eleccionTryInt;
 }
 
+}
 }

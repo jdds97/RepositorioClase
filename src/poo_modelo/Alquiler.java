@@ -18,7 +18,7 @@ public class Alquiler {
 		Alquiler alquilerPisoMasCaro=this.alquiler[0];
 		for (int i = 1; i < this.alquiler.length; i++) {
 			
-			if(!+(this.alquiler[0]==null) && this.alquiler[i].getprecioAlquilerPiso()>alquilerPisoMasCaro.getprecioAlquilerPiso()) {
+			if(!(this.alquiler[0]==null) && this.alquiler[i].getprecioAlquilerPiso()>alquilerPisoMasCaro.getprecioAlquilerPiso()) {
 				alquilerPisoMasCaro=this.alquiler[i];
 				
 			}

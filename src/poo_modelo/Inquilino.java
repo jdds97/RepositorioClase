@@ -38,6 +38,6 @@ public abstract class Inquilino {
 
 	
 
-	public abstract double descuento();
+	 abstract  double descuento();
 
 }
