@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 
 public abstract class ComicClasico {
-	private double nivelRelevanciaMedio;
+	
 	private int idComic;
 	private static int id;
 	private String titulo;
@@ -18,17 +18,10 @@ public abstract class ComicClasico {
 	 * Constructor con id estatico para que asigne un id diferente cada vez que se cree un comic
 	 */
 	public ComicClasico() {
-		this.id++;
-		this.idComic = this.id;
+		id++;
+		this.idComic = id;
 	}
 
-	/**
-	 * 
-	 * @param nivelDeRelevanciaMedio
-	 */
-	public void setNivelRelevanciaMedio(double nivelDeRelevanciaMedio) {
-		this.nivelRelevanciaMedio+=nivelDeRelevanciaMedio;
-	}
 	/**
 	 * 
 	 * @param titulo
@@ -101,13 +94,7 @@ public abstract class ComicClasico {
 	public int getIdComic() {
 		return idComic;
 	}
-	/**
-	 * 
-	 * @return nivelRelevanciaMedio
-	 */
-	public double getNivelRelevanciaMedio() {
-		return nivelRelevanciaMedio;
-	}
+
 	/**
 	 * @return Retorna el nivel de relevancia según sea un comic Americano u
 	 *         Estándar ya que cambian las constantes en cada clase.

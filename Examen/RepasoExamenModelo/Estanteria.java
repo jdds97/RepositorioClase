@@ -1,4 +1,4 @@
-package ExamenModelo;
+package RepasoExamenModelo;
 
 public class Estanteria {
 	protected int id = (int) Math.random() * 100 + 1;

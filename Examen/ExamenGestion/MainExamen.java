@@ -2,8 +2,8 @@ package ExamenGestion;
 
 import javax.swing.JOptionPane;
 
-import ExamenModelo.Almacen;
-import ExamenModelo.BebidaAzucarada;
+import RepasoExamenModelo.Almacen;
+import RepasoExamenModelo.BebidaAzucarada;
 
 public class MainExamen {
 	static boolean salir;

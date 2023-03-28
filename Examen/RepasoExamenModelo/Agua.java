@@ -1,4 +1,4 @@
-package ExamenModelo;
+package RepasoExamenModelo;
 
 import java.util.Objects;
 import java.util.Random;

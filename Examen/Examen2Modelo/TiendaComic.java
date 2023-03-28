@@ -2,6 +2,7 @@ package Examen2Modelo;
 
 import javax.swing.JOptionPane;
 
+
 /**
  * En esta clase crearemos los diferentes comics con sus diferentes acciones que
  * pedira de un menu para su creacion
@@ -38,11 +39,12 @@ public class TiendaComic {
 
 	}
 	public ComicClasico getComic() {
-		ComicClasico comicEncontrado;
+		ComicClasico comicEncontrado = null;
 		boolean encontrado=false;
 		for (int i = 0; i < comicsClasicos.length && !encontrado; i++) {
-			if(comicClasicos) {
-				
+			if(comicsClasicos[i]!=null) {
+				comicEncontrado =comicsClasicos[i];
+				encontrado=true;
 			}
 		}
 		return comicEncontrado;
@@ -56,9 +58,8 @@ public class TiendaComic {
 	 * @param genero
 	 */
 	public void listaComicsPorGenero(String genero) {
-		for (int i = 0; i < comicsClasicos.length && !(comicsClasicos[i] == null); i++) {
-			if (comicsClasicos[i].getGenero().equals(genero)) {
-
+		for (int i = 0; i < comicsClasicos.length ; i++) {
+			if (comicsClasicos[i]!=null && comicsClasicos[i].getGenero().equals(genero)) {
 				JOptionPane.showMessageDialog(null, comicsClasicos[i].toString());
 			}
 
@@ -77,20 +78,22 @@ public class TiendaComic {
 	 */
 
 	public double getNivelRelevanciaMedioComics() {
-		double nivelRelevanciaMedio = 0;
-		for (int i = 0; i < comicsClasicos.length && !(comicsClasicos[i] == null); i++) {
-			this.comicsClasicos[i].setNivelRelevanciaMedio(comicsClasicos[0].getNivelDeRelevancia());
-			nivelRelevanciaMedio += comicsClasicos[i].getNivelRelevanciaMedio();
+		ComicClasico comicMedia = this.comicsClasicos[0];
+		double nivelRelevanciaMedio;
+		for (int i = 0; i < comicsClasicos.length && comicsClasicos[i] != null; i++) {
+			if(this.comicsClasicos[0]!=null && comicsClasicos[i].getNivelDeRelevancia()>comicMedia.getNivelDeRelevancia())
+				comicMedia=comicsClasicos[i];
+			
 
 		}
-		nivelRelevanciaMedio = nivelRelevanciaMedio / comicsClasicos.length;
+		nivelRelevanciaMedio = comicMedia.getNivelDeRelevancia() / comicsClasicos.length;
 		return nivelRelevanciaMedio;
 	}
-
+	
 	/**
 	 * Metodo para calcular el comic que esta por encima de la media
 	 */
-	public void getListaComicMayorALaMedia() {
+	public void getListaComicMenorALaMedia() {
 		for (int i = 0; i < comicsClasicos.length && !(comicsClasicos[i] == null); i++) {
 			if (comicsClasicos[i].getNivelDeRelevancia() > getNivelRelevanciaMedioComics()) {
 

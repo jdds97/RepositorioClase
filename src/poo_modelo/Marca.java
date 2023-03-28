@@ -2,7 +2,7 @@ package poo_modelo;
 
 import java.util.Random;
 
-import ExamenModelo.Bebida;
+import RepasoExamenModelo.Bebida;
 
 public class Marca {
 	static Random string=new Random();

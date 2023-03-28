@@ -1,4 +1,4 @@
-package ExamenModelo;
+package RepasoExamenModelo;
 
 public class Marca {
 	protected String nombre;
