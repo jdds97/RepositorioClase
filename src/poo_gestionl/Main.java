@@ -3,9 +3,11 @@ package poo_gestionl;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 
@@ -80,6 +82,51 @@ public class Main {
 		listaNumeros.add(33);
 		
 		Collections.sort(listaNumeros,Collections.reverseOrder());
+		luis.setSalario(1000);
+		dani.setSalario(10000);
+		jesus.setSalario(220000);
+		Collections.sort(alumnosVacia);
+		for (Persona persona : alumnosVacia) {
+			System.out.println(persona.getNombre()+" "+persona.getSalario());
+		}
+		System.out.println("");
+		Collections.sort(alumnosVacia,Collections.reverseOrder());
+		for (Persona persona : alumnosVacia) {
+			System.out.println(persona.getNombre()+" "+persona.getSalario());
+		}
+		luis.setNombre("Alex");
+		dani.setNombre("Bernardo");
+		jesus.setNombre("Zapatero");
+		Collections.sort(alumnosVacia);
+		for (Persona persona : alumnosVacia) {
+			System.out.println(persona.getNombre()+" ");
+		}
+		System.out.println("");
+		Collections.sort(alumnosVacia,Collections.reverseOrder());
+		for (Persona persona : alumnosVacia) {
+			System.out.println(persona.getNombre());
+			
+		}
+		Collections.swap(listaNumeros,1, 2);
+		System.out.println(alumnosVacia);
+		TreeSet <Integer>a=new TreeSet<Integer>();
+		a.add(1);
+		a.add(20);
+		a.add(90);
+		a.add(10);
+		TreeSet <Integer>b=new TreeSet<Integer>();
+		b.add(12);
+		b.add(20);
+		b.add(90);
+		b.add(11);
+		a.addAll(b);
+		System.out.println(a);
+		a.retainAll(b);
+		
+		System.out.println(a);
+		a.remove(b);
+		System.out.println(b);
+		
 		
 		
 	}

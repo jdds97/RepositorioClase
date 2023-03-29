@@ -6,10 +6,10 @@ import javax.swing.JOptionPane;
 
 public class Persona implements Comparable<Persona> {
 	// Declaración de atributos privados de una persona.
+	private int salario;
 	protected String nombre;
 	protected String apellidos;
 	private int edad;
-	protected LocalDate fechaNacimiento;
 	protected char sexo;
 	protected Cuenta cuentaCorriente = null;
 
@@ -32,7 +32,7 @@ public class Persona implements Comparable<Persona> {
 	public Persona(String nombre, String apellidos, LocalDate fechaNacimiento, char sexo) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.fechaNacimiento = fechaNacimiento;
+		//this.fechaNacimiento = fechaNacimiento;
 		this.sexo = sexo;
 	}
 
@@ -46,13 +46,13 @@ public class Persona implements Comparable<Persona> {
 	public Persona() {
 		this.nombre = "Jesus";
 		this.apellidos = "de Dios Sánchez";
-		this.fechaNacimiento = LocalDate.parse("03-08-1997");
+		//this.fechaNacimiento = LocalDate.parse("03-08-1997");
 		this.sexo = 'M';
 	}
 	public Persona(String nombre,int edad) {
 		this.nombre =nombre;
 		this.edad=edad;
-	
+		
 	}
 	/**
 	 * <h1 style=color:blue>Acción</h1>
@@ -114,11 +114,11 @@ public class Persona implements Comparable<Persona> {
 	 * </p>
 	 * 
 	 * @return edad
-	 */
+	 
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-
+	*/
 	/**
 	 * <h1 style=color:blue>Acción</h1>
 	 * <hr>
@@ -129,10 +129,12 @@ public class Persona implements Comparable<Persona> {
 	 * 
 	 * @param edad
 	 */
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+	/*
+	 * public void setFechaNacimiento(LocalDate fechaNacimiento) {
+	 
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
+	*/
 	/**
 	 * <h1 style=color:blue>Acción</h1>
 	 * <hr>
@@ -305,23 +307,40 @@ public class Persona implements Comparable<Persona> {
 	public String toString() {
 		return "Persona [" + (nombre != null ? "nombre=" + nombre + ", " : "")
 				+ (apellidos != null ? "apellidos=" + apellidos + ", " : "")
-				+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "") + "sexo=" + sexo + ", "
+				 + "sexo=" + sexo + ", "
 				+ (cuentaCorriente != null ? "cuentaCorriente=" + cuentaCorriente : "") + "]";
 	}
-
+	/*
 	@Override
 	public int compareTo(Persona o) {
 	Persona p=(Persona) o;
 	int numeroSaliente;
-	if (this.edad==p.edad) {
+	if (this.salario==p.salario) {
 		numeroSaliente=0;
 	}
-	else if (this.edad<p.edad) {
+	else if (this.salario<p.salario) {
 		numeroSaliente=-1;
 	}
 	else
 		numeroSaliente=1;
 		return numeroSaliente;
+	}
+	
+	*/
+	
+	@Override
+	public int compareTo(Persona o) {
+		
+		return this.getNombre().compareToIgnoreCase(o.nombre);
+	}
+	
+	
+	public int getSalario() {
+		return salario;
+	}
+
+	public void setSalario(int salario) {
+		this.salario = salario;
 	}
 
 
