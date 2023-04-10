@@ -1,19 +1,21 @@
 package colecciones;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 public class Ejercicio2 {
 
 	public static void main(String[] args) {
-	Random rand=new Random();
-	int numeroAleatorio1=rand.nextInt(100);
-	int numeroAleatorio2=rand.nextInt(100);
-	ArrayList<Integer> numeroAleatorios=new ArrayList<Integer>();
-	numeroAleatorios.add(numeroAleatorio1);
-	numeroAleatorios.addAll(numeroAleatorio2);
-	System.out.println(numeroAleatorios);
+		Random rand = new Random();
+		int numeroAleatorioArray = 20;
+
+		ArrayList<Integer> numerosAleatorios = new ArrayList<>(numeroAleatorioArray);
+
+		for (int i=0;i<numerosAleatorios.size();i++) {
+			int numero=rand.nextInt(100);
+			numerosAleatorios.add(numero);
+		}
+		System.out.println(numerosAleatorios.size());
 	}
-	
+
 }

@@ -35,7 +35,7 @@ public class HashSetYHashMap {
 		linares.setNombre("Linares");
 		alumnos.put(sandra.getNombre(), sandra);
 		alumnos.put(linares.getNombre(), linares);
-		System.out.println(alumno);
+		System.out.println(alumnos);
 		System.out.println(alumnos.get("Sandra"));
 	}
 
