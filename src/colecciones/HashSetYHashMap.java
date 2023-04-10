@@ -1,6 +1,7 @@
 package colecciones;
 
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeSet;
 
 import poo_modelo.Persona;
@@ -37,6 +38,13 @@ public class HashSetYHashMap {
 		alumnos.put(linares.getNombre(), linares);
 		System.out.println(alumnos);
 		System.out.println(alumnos.get("Sandra"));
+		System.out.println(alumnos.keySet());
+		
+		for (String clave : alumnos.keySet()) {
+			System.out.println(alumnos.get(clave));
+		}
+		
+		
 	}
 
 }
