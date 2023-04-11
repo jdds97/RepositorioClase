@@ -42,7 +42,7 @@ public class Empleado implements Comparable<Empleado> {
 	
 	@Override
 	public String toString() {
-		return "Empleado \n" + (nombre != null ? "nombre=" + nombre + ", " : "") + "sueldo=" + sueldo + "\n";
+		return "Empleado \n" + (nombre != null ? "nombre=" + nombre + "" : "") + "sueldo=" + sueldo + "\n";
 	}
 	@Override
 	public int hashCode() {

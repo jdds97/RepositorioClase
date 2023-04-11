@@ -34,7 +34,7 @@ public class Almacen {
 			probabilidadAguaORefresco = random.nextInt(2);
 			switch (probabilidadAguaORefresco) {
 			case 0: {
-				this.estanterias
+				
 				this.estanterias[i] = new Estanteria(this.bebidasAzucaradas);
 			}
 				break;

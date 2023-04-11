@@ -1,5 +1,6 @@
 package colecciones;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeSet;
@@ -9,7 +10,7 @@ import poo_modelo.Persona;
 public class HashSetYHashMap {
 
 	public static void main(String[] args) {
-		TreeSet <Integer>a=new TreeSet<Integer>();
+		/**TreeSet <Integer>a=new TreeSet<Integer>();
 		a.add(1);
 		a.add(20);
 		a.add(90);
@@ -26,7 +27,7 @@ public class HashSetYHashMap {
 		System.out.println(a);
 		a.remove(b);
 		System.out.println(b);
-		
+		*/
 		
 		//Hashmap
 		HashMap <String,Persona> alumnos=new HashMap<>();
@@ -44,7 +45,14 @@ public class HashSetYHashMap {
 			System.out.println(alumnos.get(clave));
 		}
 		
-		
+		Collection<Persona> nombres=alumnos.values();
+		System.out.println(nombres);
+		String nombre="Sandra";
+		if(alumnos.containsKey(nombre))
+			System.out.println("Sandra está en la lista");
+	
+		alumnos.remove(nombre);
+		System.out.println(alumnos);
 	}
 
 }
