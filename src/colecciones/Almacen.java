@@ -3,6 +3,8 @@ package colecciones;
 
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 
 public class Almacen {
 	private HashMap<Integer,Articulo>productos=new HashMap<>();
@@ -20,21 +22,28 @@ public class Almacen {
 		this.productos = productos;
 	}
 	public void addProductos(Articulo articulo) {
+		if(articulo!=null)
+		articulo.añadirStock();
 		this.productos.put(articulo.getCodigo(), articulo);
+	}
+	public void addProductosExtendido(int codigo,String descripcion,double precioVenta ) {
+		Articulo modificado =new Articulo(codigo, descripcion, precioVenta);
+		this.productos.put(modificado.getCodigo(), modificado);
 	}
 	public void eliminarProductos(Integer clave) {
 		this.productos.remove(clave);
 	}
-	public void modificarProductos(Integer clave,Articulo articuloNuevo ) {
-		this.productos.replace(clave, articuloNuevo );
+
+	public void entradaMercancia(Articulo inflado) {
+		if(this.productos.containsValue(inflado))
+			inflado.añadirStock();
+		else {
+			JOptionPane.showMessageDialog(null, "El articulo no existe");;
+		}
+		
 	}
-	public void entradaMercancia(Integer clave) {
-		Articulo inflado=productos.get(clave);
-		inflado.añadirStock();
-	}
-	public void salidaMercancia(Integer clave) {
-		Articulo desInflado=productos.get(clave);
-		desInflado.bajadaStock();
+	public void salidaMercancia(Articulo desinflado) {
+		desinflado.bajadaStock();
 	}
 	
 }

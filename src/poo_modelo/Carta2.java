@@ -1,8 +1,28 @@
 package poo_modelo;
 
+import java.util.Objects;
 import java.util.Random;
 
+import colecciones.Empleado;
+
 public class Carta2 {
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(palo, valor);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Carta2 other = (Carta2) obj;
+		return palo == other.palo && valor == other.valor;
+	}
 
 	/**
 	 * <h1 style=color:yellow>Creación de enums</h1>
@@ -103,4 +123,19 @@ public class Carta2 {
 			return 0;
 		}
 	}
-}
+	@Override
+	public int compareTo(Carta2 o) {
+		Carta2 p=(Carta2) o;
+		int numeroSaliente;
+		if (this.valor.values().equals(o.valor.values()) {
+			numeroSaliente=0;
+		}
+		else if (this.palo.<o.palo) {
+			numeroSaliente=-1;
+		}
+		else
+			numeroSaliente=1;
+			return numeroSaliente;
+		}
+	}
+

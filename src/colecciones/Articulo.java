@@ -5,21 +5,20 @@ import java.util.Objects;
 public class Articulo {
 	private int codigo;
 	private String descripcion;
-	private int precioVenta;
+	private double precioVenta;
 	private int stock;
 
 	/**
 	 * @param codigo
 	 * @param descripcion
-	 * @param precioVenta
+	 * @param precioVenta2
 	 */
-	public Articulo(int codigo, String descripcion, int precioVenta) {
+	public Articulo(int codigo, String descripcion, double precioVenta) {
 		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;
 		this.precioVenta = precioVenta;
 	}
-
 	/**
 	 * @return the codigo
 	 */
@@ -51,14 +50,14 @@ public class Articulo {
 	/**
 	 * @return the precioVenta
 	 */
-	public int getPrecioVenta() {
+	public double getPrecioVenta() {
 		return precioVenta;
 	}
 
 	/**
 	 * @param precioVenta the precioVenta to set
 	 */
-	public void setPrecioVenta(int precioVenta) {
+	public void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;
 	}
 
@@ -101,4 +100,10 @@ public class Articulo {
 		return Objects.equals(codigo, other.codigo);
 	}
 
+	@Override
+	public String toString() {
+		return "Articulo [codigo=" + codigo + ", " + (descripcion != null ? "descripcion=" + descripcion + ", " : "")
+				+ "precioVenta=" + precioVenta + ", stock=" + stock + "]";
+	}
+	
 }
