@@ -1,6 +1,9 @@
 package colecciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import poo_modelo.Carta2;
 
 public class Ejercicio6 {
@@ -23,5 +26,8 @@ public class Ejercicio6 {
 				}
 			} while (!salir);
 		}
+		List<Carta2>listas=cartas;
+		Collections.sort(listas);
+		System.out.println(cartas);
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 
 import colecciones.Empleado;
 
-public class Carta2 {
+public class Carta2 implements Comparable<Carta2> {
 
 	@Override
 	public int hashCode() {
@@ -130,7 +130,7 @@ public class Carta2 {
 		if (this.valor.values().equals(o.valor.values()) {
 			numeroSaliente=0;
 		}
-		else if (this.palo.<o.palo) {
+		else if (this.palo.values()<o.palo.values()) {
 			numeroSaliente=-1;
 		}
 		else

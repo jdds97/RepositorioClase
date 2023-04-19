@@ -31,9 +31,10 @@ public class Almacen {
 		this.productos.put(modificado.getCodigo(), modificado);
 	}
 	public void eliminarProductos(Integer clave) {
+		if(this.productos.containsKey(clave))
 		this.productos.remove(clave);
 	}
-
+	
 	public void entradaMercancia(Articulo inflado) {
 		if(this.productos.containsValue(inflado))
 			inflado.añadirStock();
