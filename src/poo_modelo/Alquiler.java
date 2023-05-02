@@ -10,11 +10,10 @@ public class Alquiler {
 	private Piso piso;
 	private LocalDate fechaInicioAlquiler;
 	private LocalDate fechaFinalAlquiler;
-	private Barco barco;
-	private int precioAlquilerBarco;
-	private Alquiler [] alquiler;
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	//private Alquiler [] alquiler;
 	
-	public Alquiler getPrecioAlquilerMasCaro1() {
+	/*public Alquiler getPrecioAlquilerMasCaro1() {
 		Alquiler alquilerPisoMasCaro=this.alquiler[0];
 		for (int i = 1; i < this.alquiler.length; i++) {
 			
@@ -26,20 +25,18 @@ public class Alquiler {
 		
 		return alquilerPisoMasCaro;
 	}
-
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-	public Alquiler(Cliente cliente, String fechaInicio, String fechaFinal, Barco barco) {
-		this.cliente = cliente;
+	*/
 	
+
+	public Alquiler(Cliente cliente, String fechaInicio, String fechaFinal) {
+		this.cliente = cliente;
 		this.fechaInicioAlquiler = LocalDate.parse(fechaInicio, formatter);
 		this.fechaFinalAlquiler = LocalDate.parse(fechaFinal, formatter);
-		this.barco = barco;
 
 	}
 
 	public Alquiler(Inquilino inquilino, Piso piso, String fechaInicio, String fechaFinal) {
-		this.alquiler=alquiler;
+		//this.alquiler=alquiler;
 		this.inquilino = inquilino;
 		this.piso = piso;
 		this.fechaInicioAlquiler = LocalDate.parse(fechaInicio, formatter);
@@ -58,12 +55,12 @@ public class Alquiler {
 		return (int) ChronoUnit.DAYS.between(fechaInicioAlquiler, fechaFinalAlquiler);
 
 	}
-
+	/*
 	public int getprecioAlquilerBarco() {
 		this.precioAlquilerBarco = this.getDiasDeOcupacion() * barco.precioAlquilerBarco();
 		return this.precioAlquilerBarco;
 	}
-
+	*/
 	public double getprecioAlquilerPiso() {
 		
 		return piso.getPrecioAlquiler() - (piso.getPrecioAlquiler() * inquilino.descuento());
@@ -73,7 +70,7 @@ public class Alquiler {
 	public String toString() {
 		return "Alquiler [cliente=" + cliente + ", inquilino=" + inquilino + ", piso=" + piso + ", fechaInicioAlquiler="
 				+ fechaInicioAlquiler + ", fechaFinalAlquiler=" + fechaFinalAlquiler + ", barco=" + barco
-				+ ", precioAlquiler=" + precioAlquilerBarco + ", precioAlquilerPiso()=" + getprecioAlquilerPiso() + "]";
+				+ ", precioAlquiler=" +  + ", precioAlquilerPiso()=" + getprecioAlquilerPiso() + "]";
 	}
 
 	/**

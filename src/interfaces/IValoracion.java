@@ -2,7 +2,7 @@ package interfaces;
 
 import model.PuntuacionInvalidaException;
 
-public interface IValoracion {
+public interface IValoracion extends Comparable<IValoracion> {
 	/**
 	 * Metodo utilizado para saber el comentario de la valoracion
 	 * @return String con el comentario
@@ -45,5 +45,5 @@ public interface IValoracion {
 	 *  la valoracion
 	 */
 	public void setUsuario(IUsuario usuario);
-	
+	public abstract int compareTo(IValoracion o);
 }

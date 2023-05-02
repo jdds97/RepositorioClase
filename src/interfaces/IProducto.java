@@ -1,9 +1,5 @@
 package interfaces;
-
 import java.util.List;
-
-import model.PuntuacionInvalidaException;
-
 /**
  * 
  * @author Raul SG
@@ -11,7 +7,7 @@ import model.PuntuacionInvalidaException;
  * 
  *
  */
-public interface IProducto {
+public interface IProducto extends Comparable <IProducto> {
 	
 	/**
 	 * Metodo utilizado para saber el nombre del producto
@@ -41,15 +37,16 @@ public interface IProducto {
 	 * setPrecio, no controla si el precio introducido es negativo.
 	 */
 	public void setPrecio(double precio);
-	
+	public List<IValoracion> getValoraciones();
 	
 	/**
 	 * Los productos tendran almacenados una lista de sus valoraciones. Este
-	 * Metodo es utilizado para añadir una valoracion al producto
+	 * Metodo es utilizado para aï¿½adir una valoracion al producto
 	 * 
-	 * @param valoracion, valoracion asociada al producto que se quiiere añadir.
+	 * @param valoracion, valoracion asociada al producto que se quiiere aï¿½adir.
 	 * 
 	 */
+	
 	public void addValoracion(IValoracion valoracion);
 	
 	
@@ -69,10 +66,11 @@ public interface IProducto {
 	 * Metodo que devuelve todas las valoraciones realziadas por el usuario dado como parametro
 	 * a los productos de la tienda
 	 * @param usuario, Usuario por el que se desea filtrar.
-	 * @return Devuleve una lista de valoraciones las cuales han sido añadidas a
+	 * @return Devuleve una lista de valoraciones las cuales han sido aï¿½adidas a
 	 * productos de la tienda por el usuario pasado como parametro (por el que se desea filtrar)
 	 */
 	public List<IValoracion> getValoracionPorUsuario(IUsuario usuario);
 	
-
+	@Override
+	public abstract int compareTo(IProducto p);
 }

@@ -98,7 +98,7 @@ class AmazonVerdeTest {
 	}
 	
 	@Test
-	void testGetMejorValoarcion() {
+	void testGetMejorValoracion() {
 		IProducto p1=amazon.getProductoMejorValoracion();
 		assertEquals(p1.getNombre(), "Polo");
 	}

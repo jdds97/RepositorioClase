@@ -25,6 +25,11 @@ public abstract class Inquilino {
 		return Objects.equals(nombreCompleto, other.nombreCompleto);
 	}
 
+	@Override
+	public String toString() {
+		return "Inquilino [" + (nombreCompleto != null ? "nombreCompleto=" + nombreCompleto : "") + "]";
+	}
+
 	/*
 	 * Getters y setters de Inquilino
 	 */
