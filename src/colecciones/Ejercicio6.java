@@ -13,7 +13,7 @@ public class Ejercicio6 {
 	 * almacenarlas, y asegúrate de que no se repite ninguna.
 	 */
 	public static void main(String[] args) {
-		ArrayList<Carta2> cartas = new ArrayList<Carta2>();
+		ArrayList<Carta2> cartas = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
 			boolean salir;
 			do {

@@ -1,9 +1,9 @@
 package colecciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Random;
+
 
 import javax.swing.JOptionPane;
 
@@ -14,7 +14,6 @@ public class Ejercicio2HashMap {
 	public static void main(String[] args) {
 		int correcto = 0;
 		int falso = 0;
-		Random rnd=new Random();
 		Utils hashMap=new Utils();
 		HashMap<String, String> miniDiccionario = new HashMap<>();
 		miniDiccionario.put("perro", "dog");
@@ -37,22 +36,23 @@ public class Ejercicio2HashMap {
 		miniDiccionario.put("luna", "moon");
 		miniDiccionario.put("estrella", "star");
 		miniDiccionario.put("nube", "cloud");
-		ArrayList<String> palabras=new ArrayList<String>();
-		for (String diccionario : miniDiccionario.keySet()) {
-			palabras.add(diccionario);
+		ArrayList<String> palabras=new ArrayList<String>(miniDiccionario.keySet());
+		Collections.shuffle(palabras);
 			for(String traduccion:palabras) {
-				traduccion=hashMap.tryCatchString("Dime la traduccion de "+miniDiccionario.get(diccionario));
-				if(traduccion.equals(miniDiccionario.keySet())) {
+				 String respuesta=hashMap.tryCatchString("Dime la traduccion de "+miniDiccionario.get(traduccion));
+				if(respuesta.equals(miniDiccionario.get(traduccion))) {
 					correcto++;
 				}
 				else {
 					falso++;
 				}
 			}
+			JOptionPane.showMessageDialog(null, "Palabras correctas"+correcto+" palabras");
+			JOptionPane.showMessageDialog(null, "Palabras erróneas"+falso+" palabras");
 		}
 			
 		}
 		
-	}
+	
 
 

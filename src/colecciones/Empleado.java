@@ -61,12 +61,11 @@ public class Empleado implements Comparable<Empleado> {
 	}
 	@Override
 	public int compareTo(Empleado o) {
-		Empleado p=(Empleado) o;
 		int numeroSaliente;
-		if (this.sueldo==p.sueldo) {
+		if (this.sueldo==o.sueldo) {
 			numeroSaliente=0;
 		}
-		else if (this.sueldo<p.sueldo) {
+		else if (this.sueldo<o.sueldo) {
 			numeroSaliente=-1;
 		}
 		else
