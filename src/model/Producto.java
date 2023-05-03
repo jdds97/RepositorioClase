@@ -14,13 +14,12 @@ public class Producto implements IProducto,Comparable<IProducto> {
 	private List<IValoracion> valoraciones = new LinkedList<IValoracion>();
 
 	public Producto() {
-
-	}
+   // TODO document why this constructor is empty
+ }
 
 	@Override
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return this.nombre;
+	return this.nombre;
 	}
 
 	@Override
@@ -37,19 +36,19 @@ public class Producto implements IProducto,Comparable<IProducto> {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
-	@Override
-	public void addValoracion(IValoracion valoracion) {
-		this.valoraciones.add(valoracion);
-	}
 	@Override
 	public List<IValoracion> getValoraciones() {
 		return valoraciones;
 	}
-
+	@Override
 	public void setValoraciones(List<IValoracion> valoraciones) {
 		this.valoraciones = valoraciones;
 	}
+	@Override
+	public void addValoracion(IValoracion valoracion) {
+		this.valoraciones.add(valoracion);
+	}
+	
 
 	@Override
 	public double getValoracionMedia() {

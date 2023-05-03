@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface IUsuario {
+public interface IUsuario extends Comparable<IUsuario> {
 	
 	/**
 	 * Metodo utilizado para saber el nombre del usuario. El nombre es el
@@ -9,7 +9,7 @@ public interface IUsuario {
 	 * 
 	 * @return String con el nombre del usuario
 	 */
-	public String getName();
+	public String getNombre();
 	
 	
 	/**
@@ -17,6 +17,6 @@ public interface IUsuario {
 	 * @param name, String que se guardara como el nuevo nombre
 	 * del usuario
 	 */
-	public void setName(String name);
+	public void setNombre(String nombre);
 
 }

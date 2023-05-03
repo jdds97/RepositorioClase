@@ -37,8 +37,10 @@ public interface IProducto extends Comparable <IProducto> {
 	 * setPrecio, no controla si el precio introducido es negativo.
 	 */
 	public void setPrecio(double precio);
+	
 	public List<IValoracion> getValoraciones();
 	
+	public void setValoraciones(List<IValoracion> valoraciones);
 	/**
 	 * Los productos tendran almacenados una lista de sus valoraciones. Este
 	 * Metodo es utilizado para a�adir una valoracion al producto

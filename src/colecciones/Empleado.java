@@ -68,8 +68,9 @@ public class Empleado implements Comparable<Empleado> {
 		else if (this.sueldo<o.sueldo) {
 			numeroSaliente=-1;
 		}
-		else
+		else {
 			numeroSaliente=1;
+		}
 			return numeroSaliente;
 		}
 	

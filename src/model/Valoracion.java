@@ -5,13 +5,15 @@ import java.util.Objects;
 import interfaces.IUsuario;
 import interfaces.IValoracion;
 
-public class Valoracion implements IValoracion,Comparable<IValoracion>{
+public class Valoracion implements IValoracion{
 	private String comentario;
 	private int puntuacion;
 	private IUsuario usuario;
+	public Valoracion() {
+   // TODO document why this constructor is empty
+ }
 	@Override
 	public String getComentario() {
-		// TODO Auto-generated method stub
 		return this.comentario;
 	}
 
@@ -22,7 +24,6 @@ public class Valoracion implements IValoracion,Comparable<IValoracion>{
 
 	@Override
 	public int getPuntuacion() {
-		// TODO Auto-generated method stub
 		return this.puntuacion;
 	}
 
@@ -58,8 +59,6 @@ public class Valoracion implements IValoracion,Comparable<IValoracion>{
 		Valoracion other = (Valoracion) obj;
 		return Objects.equals(usuario, other.usuario);
 	}
-
-
 	@Override
 	public int compareTo(IValoracion o) {
 		int numeroSaliente;
@@ -72,6 +71,8 @@ public class Valoracion implements IValoracion,Comparable<IValoracion>{
 		}
 		return numeroSaliente;		
 	}
+
+
 
 
 

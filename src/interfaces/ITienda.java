@@ -1,5 +1,6 @@
 package interfaces;
 
+
 import java.util.List;
 
 /**
@@ -10,8 +11,9 @@ import java.util.List;
  * propio catalogo de productos.
  *
  */
-public interface ITienda {
-	
+public interface ITienda extends Comparable<ITienda> {
+	public List<IProducto> getProductos();
+	public void setProductos(List<IProducto> productos);
 	/**
 	 * Metodo utilizado para añadir un producto al catalogo de la tienda
 	 * 
