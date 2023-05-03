@@ -1,6 +1,4 @@
-package poo_modelo;
-
-import java.util.Objects;
+package ExamenEntornos;
 
 public class Cliente {
 	private final String DNI;
@@ -50,26 +48,4 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(DNI);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		return Objects.equals(DNI, other.DNI);
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [DNI=" + DNI + ", edad=" + edad + ", direccion=" + direccion + ", telefono=" + telefono + "]";
-	}
-	
 }
