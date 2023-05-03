@@ -38,9 +38,11 @@ public class Tienda implements ITienda {
 		IProducto mejorValorado = null;
 		double mejorValoracion=this.productos.get(0).getValoracionMedia();
 		for(IProducto producto:this.productos) {
+			if(producto!=null) {
 			if(producto.getValoracionMedia()>=mejorValoracion) {
 				mejorValoracion=producto.getValoracionMedia();
 				mejorValorado=producto;
+			}
 			}
 		}
 		return mejorValorado;
@@ -74,6 +76,10 @@ public class Tienda implements ITienda {
 			numeroSaliente = 1;
 		}
 		return numeroSaliente;		
+	}
+	@Override
+	public String toString() {
+		return "Tienda [" + (productos != null ? "productos=" + productos : "") + "]";
 	}
 
 
