@@ -1,36 +1,24 @@
-package fuentes;
+package Musicos;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Disco implements Comparable<Disco> {
+public class Disco extends ArrayList<Cancion> implements Comparable<Disco> {
 	private String titulo;
-	private LinkedList<Cancion> canciones = new LinkedList<>();
-	
-	
-	public Disco(String titulo) {
-		
+
+	public Disco( String titulo) {
+		super();
 		this.titulo = titulo;
 	}
-	
-
 	public String getTitulo() {
 		return titulo;
 	}
-	public void add(Cancion cancion) {
-		canciones.add(null);
-	}
+	
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public List<Cancion> getCanciones() {
-		return canciones;
-	}
-
-	public void setCanciones(List<Cancion> canciones) {
-		this.canciones = (LinkedList<Cancion>) canciones;
-	}
+	
 	
 	
 	@Override
@@ -54,7 +42,7 @@ public class Disco implements Comparable<Disco> {
 		String res = "";
 
 		res += "Disco: " + this.titulo + "\n";
-		for (Cancion c : this.canciones)
+		for (Cancion c : this)
 			res += "     " + c.getDuracion() + "\n";
 		return res;
 	}
@@ -63,4 +51,18 @@ public class Disco implements Comparable<Disco> {
 	public int compareTo(Disco o) {
 		return this.titulo.compareTo(o.titulo);
 	}
+	Comparator<Disco> comparadorDuracion = new Comparator<Disco>() {
+        @Override
+        public int compare(Disco disco1, Disco disco2) {
+            int duracion1 = 0;
+            for (Cancion cancion :disco1) {
+                duracion1 += cancion.getDuracion();
+            }
+            int duracion2 = 0;
+            for (Cancion cancion : disco2) {
+                duracion2 += cancion.getDuracion();
+            }
+            return Integer.compare(duracion1, duracion2);
+        }
+    };
 }

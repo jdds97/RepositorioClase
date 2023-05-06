@@ -1,4 +1,3 @@
-package fuentes;
 
 public class Principal
 {

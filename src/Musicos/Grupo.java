@@ -1,14 +1,12 @@
-package fuentes;
+package Musicos;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Objects;
-import java.util.Set;
+
 
 public class Grupo {
-	private final String nombre;
-	private LinkedList<Musico> musicos = new LinkedList<>();
-	private HashSet<Disco> discos = new HashSet<>();
+	private String nombre;
+	private HashSet<Musico> musicos = new HashSet<>();
 
 	public Grupo(String nombre) {
 		this.nombre = nombre;
@@ -18,12 +16,12 @@ public class Grupo {
 		return nombre;
 	}
 
-	public LinkedList<Musico> getMusicos() {
+	public HashSet<Musico> getMusicos() {
 		return musicos;
 	}
 
-	public void setMusicos(LinkedList<Musico> musicosP) {
-		this.musicos = musicosP;
+	public void setMusicos(HashSet<Musico> musicos) {
+		this.musicos = musicos;
 	}
 
 	public String toString() {
@@ -38,13 +36,7 @@ public class Grupo {
 		musicos.add(musico);
 	}
 
-	public HashSet<Disco> getDiscos() {
-		return discos;
-	}
-
-	public void setDiscos(Set<Disco> discos) {
-		this.discos = (HashSet<Disco>) discos;
-	}
+	
 
 	@Override
 	public int hashCode() {

@@ -1,56 +1,37 @@
-package fuentes;
+package Aerolinea;
 
 import java.util.Objects;
 
-public class Musico 
+public class LineaAerea implements Comparable<LineaAerea>
 {
 	private String nombre;
-	private int edad;
-	private Grupo grupoMusico;
-	
-	public Musico(String nombre, int edad)
-	
+	private int numAviones;
+	public LineaAerea(String nombre, int numAviones)
 	{
-		super();
 		this.nombre = nombre;
-		this.edad = edad;
+		this.numAviones = numAviones;
 	}
-	
 	public String getNombre()
 	{
 		return nombre;
 	}
-	
 	public void setNombre(String nombre)
 	{
 		this.nombre = nombre;
 	}
-	
-	public int getEdad()
+	public int getNumAviones()
 	{
-		return edad;
+		return numAviones;
 	}
-
-	public void setEdad(int edad)
+	public void setNumAviones(int numAviones)
 	{
-		this.edad = edad;
+		this.numAviones = numAviones;
 	}
 	
-	public Grupo getGrupoMusico() {
-		return grupoMusico;
-	}
-
-	public void setGrupoMusico(Grupo grupoMusico) {
-		this.grupoMusico = grupoMusico;
-	}
-
-	
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(nombre);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -59,12 +40,19 @@ public class Musico
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Musico other = (Musico) obj;
+		LineaAerea other = (LineaAerea) obj;
 		return Objects.equals(nombre, other.nombre);
 	}
-
+	@Override
 	public String toString()
 	{
-		return this.nombre+"-"+this.edad;
+		return nombre;
 	}
+	@Override
+	public int compareTo(LineaAerea o) {
+		return this.nombre.compareTo(o.nombre);
+	}
+
+
+
 }
