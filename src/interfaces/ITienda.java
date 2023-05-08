@@ -15,9 +15,9 @@ public interface ITienda extends Comparable<ITienda> {
 	public List<IProducto> getProductos();
 	public void setProductos(List<IProducto> productos);
 	/**
-	 * Metodo utilizado para añadir un producto al catalogo de la tienda
+	 * Metodo utilizado para aï¿½adir un producto al catalogo de la tienda
 	 * 
-	 * @param producto, es el articulo que se quierea añadir al catalogo de la
+	 * @param producto, es el articulo que se quierea aï¿½adir al catalogo de la
 	 * tienda. Se permite que haya productos que se llamen igual repetidos.
 	 */
 	public void addProducto(IProducto producto);
@@ -37,9 +37,9 @@ public interface ITienda extends Comparable<ITienda> {
 	 * el producto cuya valoracion media es la mas alta. Si no hay ningun producto, devuelve null
 	 * 
 	 * 
-	 * @return Producto con la valoracion cuya puntuacion  es la mas alta de todos los que se han añadido
+	 * @return Producto con la valoracion cuya puntuacion  es la mas alta de todos los que se han aï¿½adido
 	 * a la tienda.
 	 */
 	public IProducto getProductoMejorValoracion();
-
+	
 }

@@ -29,7 +29,12 @@ public class Valoracion implements IValoracion{
 
 	@Override
 	public void setPuntuacion(int puntuacion) throws PuntuacionInvalidaException {
+		if(!(puntuacion>=1 && puntuacion<=5)) 
+				throw new PuntuacionInvalidaException();
+		
+		else {
 		this.puntuacion=puntuacion;
+		}
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class Valoracion implements IValoracion{
 		if (getClass() != obj.getClass())
 			return false;
 		Valoracion other = (Valoracion) obj;
-		return Objects.equals(usuario, other.usuario);
+		return Objects.equals(comentario, other.comentario);
 	}
 	@Override
 	public int compareTo(IValoracion o) {
@@ -70,6 +75,11 @@ public class Valoracion implements IValoracion{
 			numeroSaliente = 1;
 		}
 		return numeroSaliente;		
+	}
+	@Override
+	public String toString() {
+		return "Valoracion [" + (comentario != null ? "comentario=" + comentario + ", " : "") + "puntuacion="
+				+ puntuacion + ", " + (usuario != null ? "usuario=" + usuario : "") + "]";
 	}
 
 

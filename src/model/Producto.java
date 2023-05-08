@@ -7,19 +7,19 @@ import interfaces.IProducto;
 import interfaces.IUsuario;
 import interfaces.IValoracion;
 
-public class Producto implements IProducto,Comparable<IProducto> {
+public class Producto implements IProducto, Comparable<IProducto> {
 
 	private String nombre;
 	private double precio;
 	private List<IValoracion> valoraciones = new LinkedList<IValoracion>();
 
 	public Producto() {
-   // TODO document why this constructor is empty
- }
+		// TODO document why this constructor is empty
+	}
 
 	@Override
 	public String getNombre() {
-	return this.nombre;
+		return this.nombre;
 	}
 
 	@Override
@@ -36,31 +36,33 @@ public class Producto implements IProducto,Comparable<IProducto> {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
 	@Override
 	public List<IValoracion> getValoraciones() {
 		return valoraciones;
 	}
+
 	@Override
 	public void setValoraciones(List<IValoracion> valoraciones) {
 		this.valoraciones = valoraciones;
 	}
+
 	@Override
 	public void addValoracion(IValoracion valoracion) {
 		this.valoraciones.add(valoracion);
 	}
-	
 
 	@Override
 	public double getValoracionMedia() {
 		int valoracionMedia = 0;
-		for (IValoracion valoraciones : this.valoraciones) {
-			valoracionMedia += valoraciones.getPuntuacion();
+		for (IValoracion valoracion : this.valoraciones) {
+			if (this.valoraciones != null)
+				valoracionMedia += valoracion.getPuntuacion();
 		}
-		if(this.valoraciones.size()==0) {
-			valoracionMedia=0;
-		}
-		else {
-		valoracionMedia = valoracionMedia / this.valoraciones.size();
+		if (this.valoraciones.size() == 0) {
+			valoracionMedia = 0;
+		} else {
+			valoracionMedia = valoracionMedia / this.valoraciones.size();
 		}
 		return valoracionMedia;
 	}
@@ -69,9 +71,10 @@ public class Producto implements IProducto,Comparable<IProducto> {
 	public List<IValoracion> getValoracionPorUsuario(IUsuario usuario) {
 		List<IValoracion> valoracionesUsuario = new LinkedList<IValoracion>();
 		for (IValoracion valoracion : this.valoraciones) {
-			if (valoracion.getUsuario().equals(usuario))
-				valoracionesUsuario.add(valoracion);
-
+			if (valoracion != null) {
+				if (valoracion.getUsuario().equals(usuario))
+					valoracionesUsuario.add(valoracion);
+			}
 		}
 		return valoracionesUsuario;
 	}
@@ -95,10 +98,19 @@ public class Producto implements IProducto,Comparable<IProducto> {
 
 	@Override
 	public int compareTo(IProducto p) {
-		int numeroSaliente;
+		int numeroSaliente = 0;
 		if (this.precio == p.getPrecio()) {
-			numeroSaliente = 0;
+			if (this.getValoracionMedia() == p.getValoracionMedia())
+				numeroSaliente = 0;
+			numeroSaliente=this.nombre.compareTo(p.getNombre());
+				
+			/*if (this.getValoracionMedia() < p.getValoracionMedia())
+				numeroSaliente = -1;
+			if (this.getValoracionMedia() > p.getValoracionMedia())
+				numeroSaliente = 1;
+				*/
 		} else if (this.precio < p.getPrecio()) {
+			
 			numeroSaliente = -1;
 		} else {
 			numeroSaliente = 1;
@@ -106,7 +118,10 @@ public class Producto implements IProducto,Comparable<IProducto> {
 		return numeroSaliente;
 	}
 
+	@Override
+	public String toString() {
+		return "Producto [" + (nombre != null ? "nombre=" + nombre + ", " : "") + "precio=" + precio + ", "
+				+ (valoraciones != null ? "valoraciones=" + valoraciones : "") + "]";
+	}
 	
-
-
 }
