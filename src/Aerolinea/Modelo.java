@@ -31,6 +31,10 @@ public class Modelo {
 	{
 		if (this.conexiones.containsKey(localidad))
 			this.conexiones.get(localidad).add(vuelo);
+		else {
+			this.añadirLocalidad(localidad);
+			this.conexiones.get(localidad).add(vuelo);
+		}
 
 	}
 
@@ -65,24 +69,43 @@ public class Modelo {
 	// la localidad pasada como parámetro.
 	{
 		TreeSet<LineaAerea> li = new TreeSet<>();
-		for(Localidad v:this.conexiones.keySet())
-		
-		
+		for (HashSet<Vuelo> l : this.conexiones.values())
+			for (Vuelo v : l)
+				if (v.getDestino().equals(localidad))
+					li.add(v.getLinea());
 		return li;
+
 	}
 
 	public int totalAvionesDesde(Localidad localidad)
 	// devuelve un entero con la suma de todos los aviones que tienen las líneas
 	// que hacen vuelos desde la localidad pasada como parámetro.
 	{
-	int suma=0;
-	for(Vuelo v :t)
+		int suma = 0;
+		TreeSet<LineaAerea> arbol = new TreeSet<>();
+		for (Vuelo v : this.conexiones.get(localidad))
+			if (!arbol.contains(v.getLinea())) {
+				arbol.add(v.getLinea());
+				suma += v.getLinea().getNumAviones();
+			}
+		return suma;
+
 	}
 
 	public boolean hayVuelosReciprocos()
 	// devuelve un boolean indicando si existen dos ciudades entre las que hay
 	// vuelos en los dos sentidos.
 	{
+		for (Localidad origen : this.conexiones.keySet()) {
+			for (HashSet<Vuelo> destinos : this.conexiones.values()) {
+				for (Vuelo destino: destinos) {
+					if (origen.equals(destino.getDestino()))
+						return true;
+				}
+			}
+		}
+		return false;
+
 	}
 
 	public String toString() {
