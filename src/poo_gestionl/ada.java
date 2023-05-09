@@ -1,5 +1,9 @@
 package poo_gestionl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import interfaces.IProducto;
 import interfaces.ITienda;
 import interfaces.IUsuario;
@@ -13,6 +17,7 @@ import model.Valoracion;
 public class ada {
 	static ITienda amazon;
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) throws PuntuacionInvalidaException {
 		amazon=new Tienda();
 		IProducto producto1=new Producto();
@@ -70,5 +75,9 @@ public class ada {
 		IUsuario usuario1=new Usuario();
 		usuario1.setNombre("pepito");
 		System.out.println(usuario1.getNombre());
+		List<IUsuario> usuarios=new ArrayList<>();
+		usuarios.add(usuario1);
+		Collections.sort(usuarios,Collections.reverseOrder());
+		usuarios.subList(usuarios.lastIndexOf(usuarios)-10, usuarios.lastIndexOf(usuarios));
 	}
 }
