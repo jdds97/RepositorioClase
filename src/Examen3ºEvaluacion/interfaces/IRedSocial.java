@@ -62,17 +62,6 @@ public interface IRedSocial {
 	 * @param usuarioNuevo. Usuario que se desea a�adir al registro de usuarios de la red.
 	 */
 	 void registrarUsuario(IUsuario usuarioNuevo);
-	 /*
-	  * Metodo utilizado para obtener la lista entera de los usuarios de la red
-	  * @return List<IUsuario>. Listado de todos los usuarios de la red.
-	  * 
-	  */
-	 public List<IUsuario> getUsuariosRed();
-	 /*
-	  * Metodo utilizado para modificar la lista entera de los usuarios de la red
-	  *@param usuarioRed List<IUsuario> Listado nuevo de usuarios de toda la red
-	  */
-	 public void setUsuariosRed(List<IUsuario> usuariosRed);
-	
+	 
 	
 }

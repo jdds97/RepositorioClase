@@ -1,6 +1,7 @@
 package Examen3ºEvaluacion.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +31,8 @@ public class RedSocial implements IRedSocial {
 		// no hace falta aplicarle ningun desorden
 		contenido.addAll(usuario.getContenidoDeLosUsuariosSeguidos());
 		// Devolvemos la lista de contenido de los usuarios seguidos del IUsuario pasado
-		// por parametro
+		// por parametro ordenada con el Collections.sort
+		Collections.sort(contenido);
 		return contenido;
 	}
 
@@ -77,7 +79,7 @@ public class RedSocial implements IRedSocial {
 	/**
 	 * @return the usuariosRed
 	 */
-	@Override
+	
 	public List<IUsuario> getUsuariosRed() {
 		return usuariosRed;
 	}
@@ -85,7 +87,7 @@ public class RedSocial implements IRedSocial {
 	/**
 	 * @param usuariosRed the usuariosRed to set
 	 */
-	@Override
+	
 	public void setUsuariosRed(List<IUsuario> usuariosRed) {
 		this.usuariosRed = usuariosRed;
 	}

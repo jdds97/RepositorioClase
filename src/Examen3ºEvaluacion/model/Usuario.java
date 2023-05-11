@@ -59,7 +59,7 @@ public class Usuario implements IUsuario {
 		for (IFoto foto : this.listaFotos)
 			/// Recorremos la lista de hashtag de la foto que esta iterando con el
 			// foto.getHashTag
-			for (IHashtag hastag : foto.getHashtag())
+			for (IHashtag hastag : ((Foto) foto).getHashtag())
 				// Si el hashtag que pasamos por parametro es igual (equals) que el de la lista
 				// de hashtag de la foto en ese momento ,añadimos la foto a la lista filtrada
 				// por Hashtag
@@ -76,11 +76,7 @@ public class Usuario implements IUsuario {
 		List<IFoto> fotosSeguidos = new ArrayList<>();
 		//Buscamos en la lista de usuarios seguidos
 		for (IUsuario usuario : this.usuariosSeguidos)
-			//Dentro del usuario hay que recorrer sus fotos 
-			for (IFoto foto : usuario.getFotos())
-				//Vamos añadiendo cada foto de la lista de fotos del usuario iterando a la lista de fotosSeguidos
-				fotosSeguidos.add(foto);
-		
+			fotosSeguidos.addAll(usuario.getListaFotos());
 		return fotosSeguidos;
 	}
 

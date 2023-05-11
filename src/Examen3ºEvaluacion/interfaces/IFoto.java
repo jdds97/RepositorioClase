@@ -1,6 +1,6 @@
 package Examen3ºEvaluacion.interfaces;
 
-import java.util.List;
+
 
 /**
  * Interfaz utilizada para representar el comportamiento de una foto. En la red
@@ -71,13 +71,6 @@ public interface IFoto extends Comparable<IFoto>{
 	 * @return int. Numero de etiquetas que estan asociadas a la foto.
 	 */
 	int getNumeroHashtag();
-	/*
-	 * Metodo que  devuelve la lista de los hashtag asociados a la foto
-	 */
-	public List<IHashtag> getHashtag();
-	/*
-	 * Metodo utilizado para modificar la lista de los hashtag asociados a la foto.
-	 */
-	public void setHastag(List<IHashtag> hastag);
+
 
 }

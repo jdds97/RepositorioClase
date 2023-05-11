@@ -32,13 +32,13 @@ public class Foto implements IFoto {
 		// Aqui estamos diciendo que si el numero de la lista de hashtag de esta foto y
 		// otra son iguales ,la variable
 		// saliente sea 0 y por lo tanto la IFoto o se pondra a la derecha de esta
-		if (this.hashtag.size() == o.getHashtag().size()) {
+		if (this.getNumeroHashtag() == o.getNumeroHashtag()) {
 			numeroSaliente = 0;
 			// En este if condicionamos que si el numero de hashtag de esta foto es menor a
 			// el numero de hashtag de otra foto
 			// ,la variable retornara -1 poniendo a esta foto hacia la izquierda de la otra
 			// foto en la lista
-		} else if (this.hashtag.size() > o.getHashtag().size()) {
+		} else if (this.getNumeroHashtag() > o.getNumeroHashtag()) {
 			numeroSaliente = -1;
 			// En este if condicionamos que si el numero de hashtag de esta foto entonces es
 			// mayor a el numero de hashtag de otra foto
@@ -99,7 +99,7 @@ public class Foto implements IFoto {
 	/**
 	 * @return the hastag
 	 */
-	@Override
+	
 	public List<IHashtag> getHashtag() {
 		return hashtag;
 	}
@@ -107,7 +107,7 @@ public class Foto implements IFoto {
 	/**
 	 * @param hastag the hastag to set
 	 */
-	@Override
+	
 	public void setHastag(List<IHashtag> hastag) {
 		this.hashtag = hastag;
 	}
